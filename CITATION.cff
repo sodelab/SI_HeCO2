@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "Supporting Data for He–CO2 Vibrational Structure Study"
+message: "If you use this repository, please cite the associated manuscript."
+type: dataset
+
+authors:
+  - family-names: Rodriguez
+    given-names: Larry
+  - family-names: Natalizio
+    given-names: Michael
+  - family-names: Lobo
+    given-names: John Oliver
+  - family-names: Vasquez
+    given-names: Angel
+  - family-names: Sode
+    given-names: Olaseni
+    orcid: "https://orcid.org/0000-0001-XXXX-XXXX"
+
+repository-code: "https://github.com/sodelab/SI_HeCO2"
+
+keywords:
+  - carbon dioxide
+  - helium
+  - vibrational spectroscopy
+  - potential energy surface
+  - VCI
+  - VSCF
+  - bound states
+  - rare gas complexes
+
+license: "CC-BY-4.0"
