@@ -14,7 +14,7 @@ This repository provides the numerical data and supporting files associated with
 
 The accompanying Supporting Information document summarizes the dominant VCI wavefunction contributions and the J = 0 bound-state energies most directly relevant to the assignments discussed in the manuscript. This repository contains the more complete numerical data used to generate those summaries.
 
-## Directory Structure
+## Directory Structure and Repository Contents
 
 ```text
 SI_HeCO2/
@@ -24,68 +24,28 @@ SI_HeCO2/
 ├── CITATION.cff
 │
 ├── supporting_information/
-│   ├── SI_HeCO2.pdf
-│   └── SI_HeCO2.tex
-│
 ├── geometries/
-│   ├── cartesian/
-│   └── internal_coordinates/
-│
 ├── PES/
-│   ├── coefficients/
-│   ├── training_set/
-│   ├── test_set/
-│   └── fitting_statistics/
-│
 ├── vibrational_calculations/
-│   ├── harmonic/
-│   ├── VSCF/
-│   ├── VCI/
-│   └── VCI_coefficients/
-│
 ├── bound_state_calculations/
-│   ├── effective_potentials/
-│   ├── BOUND_inputs/
-│   ├── BOUND_outputs/
-│   └── bound_state_energies/
-│
-├── isotopologues/
-│   ├── effective_potentials/
-│   ├── BOUND_outputs/
-│   └── band_origin_shifts/
-│
 └── scripts/
-    ├── extract_vci_coefficients.py
-    └── README.md
 ```
-
-## Repository Contents
 
 ### `supporting_information/`
 
-This directory contains the Supporting Information document associated with the manuscript. The PDF version is intended for direct reading, while the LaTeX source is provided for transparency and reproducibility.
+Contains the Supporting Information PDF and LaTeX source associated with the manuscript.
 
 ### `geometries/`
 
-This directory contains structural data for the He--CO2 complex. Cartesian coordinates are provided in XYZ format, and internal-coordinate files are included where relevant for reproducing the vibrational calculations.
-
-The equilibrium structure corresponds to the T-shaped He--CO2 minimum discussed in the manuscript.
+Contains optimized Cartesian coordinates provided in XYZ format and internal-coordinate representations of the He--CO$_2$ complex. The equilibrium structure corresponds to the T-shaped He--CO2 minimum discussed in the manuscript.
 
 ### `PES/`
 
-This directory contains data associated with the flexible-monomer two-body He--CO2 potential energy surface.
-
-The `coefficients/` directory contains the fitted potential-energy-surface coefficients. The `training_set/` and `test_set/` directories contain the electronic-structure data used to fit and validate the potential. The `fitting_statistics/` directory contains summary statistics such as RMSE and maximum errors for the full and low-energy regions of the dataset.
-
-Large data files may be provided in compressed format.
+Contains the fitted He--CO$_2$ potential-energy-surface coefficients, fitting statistics, and associated training/test-set data. 
 
 ### `vibrational_calculations/`
 
-This directory contains files associated with the harmonic, VSCF, and VCI vibrational calculations.
-
-The `harmonic/` directory contains harmonic frequencies and normal-mode information. The `VSCF/` directory contains VSCF frequency results and relevant output files. The `VCI/` directory contains VCI frequency results, including the states discussed in the manuscript. The `VCI_coefficients/` directory contains the VCI wavefunction expansion coefficients used to assign the dominant vibrational configurations reported in the Supporting Information.
-
-VCI configurations are reported in the mode order:
+Contains harmonic, VSCF, and VCI calculations for all isotopologues considered in the manuscript and the VCI wavefunction expansion coefficients. VCI configurations are reported in the mode order:
 
 ```text
 (nu_b, nu_s, nu_2^o, nu_2^i, nu_1, nu_3)
@@ -93,21 +53,49 @@ VCI configurations are reported in the mode order:
 
 where `nu_b` and `nu_s` are the intermolecular bend and stretch, `nu_2^o` and `nu_2^i` are the out-of-plane and in-plane CO2 bends, `nu_1` is the symmetric stretch, and `nu_3` is the asymmetric stretch.
 
+```text
+vibrational_calculations/
+│
+├── He-16O12C16O/
+│   ├── harmonic/
+│   ├── VSCF/
+│   └── VCI/
+│
+├── He-16O13C16O/
+├── He-18O12C18O/
+├── He-18O13C18O/
+├── He-16O12C18O/
+└── He-16O13C18O/
+```
+
+Each isotopologue directory follows the same internal organization as `He-16O12C16O`.
+
 ### `bound_state_calculations/`
 
-This directory contains files associated with the intermolecular bound-state calculations.
+Contains effective intermolecular potentials, BOUND input files, output files, and processed bound-state energies. 
 
-The `effective_potentials/` directory contains the vibrational-state-specific effective intermolecular potentials, including the ground-state and nu3-excited surfaces. The `BOUND_inputs/` directory contains representative input files for the BOUND calculations. The `BOUND_outputs/` directory contains raw BOUND output files. The `bound_state_energies/` directory contains processed J = 0 bound-state energy tables.
+```text
+bound_state_calculations/
+│
+├── He-16O12C16O/
+│   ├── Veff_v0/
+│   ├── Veff_v1/
+│   ├── BOUND_inputs/
+│   └── outputs/
+│
+├── He-16O13C16O/
+├── He-18O12C18O/
+├── He-18O13C18O/
+├── He-16O12C18O/
+└── He-16O13C18O/
+```
 
-Energies are reported relative to the appropriate dissociation limit. Excitation energies are reported relative to the lowest bound state on each effective potential.
-
-### `isotopologues/`
-
-This directory contains bound-state and band-origin-shift data for the isotopologues discussed in the manuscript. These files support the isotope-dependent nu3 band-origin shifts reported in the main text.
+Each isotopologue directory follows the same internal organization as `He-16O12C16O`.
 
 ### `scripts/`
 
-This directory contains analysis scripts used to process output files and generate tables for the Supporting Information. In particular, `extract_vci_coefficients.py` extracts the leading VCI wavefunction contributions from VCI output files and formats them for inspection or direct inclusion in LaTeX tables.
+Contains utility scripts used for data analysis and generation of Supporting Information tables, including extraction of dominant VCI wavefunction contributions. 
+
 
 ## Notes on Reproducibility
 
