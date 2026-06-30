@@ -37,11 +37,11 @@ Contains the Supporting Information PDF and LaTeX source associated with the man
 
 ### `geometries/`
 
-Contains optimized Cartesian coordinates provided in XYZ format and internal-coordinate representations of the He--CO$_2$ complex. The equilibrium structure corresponds to the T-shaped He--CO2 minimum discussed in the manuscript.
+Contains optimized Cartesian coordinates provided in XYZ format and internal-coordinate representations of the He--CO<sub>2</sub> complex. The equilibrium structure corresponds to the T-shaped He--CO<sub>2</sub> minimum discussed in the manuscript.
 
 ### `PES/`
 
-Contains the fitted He--CO$_2$ potential-energy-surface coefficients, fitting statistics, and associated training/test-set data. 
+Contains the fitted He--CO<sub>2</sub> potential-energy-surface coefficients, fitting statistics, and associated training/test-set data. 
 
 ### `vibrational_calculations/`
 
@@ -107,6 +107,6 @@ Where possible, processed summary files are provided alongside raw output files 
 
 If you use this data, please cite the associated manuscript:
 
-Rodriguez, L.; Natalizio, M.; Lobo, J. O.; Vasquez, A.; Sode, O. *Anharmonic Vibrational Structure and Bound States of the He–CO$_2$ van der Waals Complex.*
+Rodriguez, L.; Natalizio, M.; Lobo, J. O.; Vasquez, A.; Sode, O. *Anharmonic Vibrational Structure and Bound States of the He–CO<sub>2</sub> van der Waals Complex.*
 
 A formal citation and DOI will be added after publication.
