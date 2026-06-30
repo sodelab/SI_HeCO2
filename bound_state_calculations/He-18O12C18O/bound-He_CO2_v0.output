@@ -1,0 +1,1037 @@
+  -- BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND --
+ |                                                                            |
+ |          Bound states of interacting pairs of atoms and molecules          |
+ |                                                                            |
+ |              Copyright (C) 2025 J. M. Hutson & C. R. Le Sueur              |
+ |                                                                            |
+ |                               Version 2025.0                               |
+ |                                                                            |
+ |                       Run on 27 Feb 2026   at 15:46:28                     |
+ |                                                                            |
+  -- BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND --
+
+
+  This program is free software: you can redistribute it and/or modify it under
+  the terms of the GNU General Public License, version 3, as published by
+  the Free Software Foundation.
+
+  Publications resulting from the use of this program should cite both the
+  version of the program used:
+
+  J. M. Hutson & C. R. Le Sueur, BOUND: a program for bound states of
+  interacting pairs of atoms and molecules,
+  Version 2025.0, https//github.com/molscat/molscat
+
+  and the published paper:
+
+  J. M. Hutson & C. R. Le Sueur, Comput. Phys. Commun., 241, 1-8 (2019).
+
+
+  USING CODATA 2022 RECOMMENDED VALUES OF FUNDAMENTAL PHYSICAL CONSTANTS
+
+  PRINT LEVEL (IPRINT) =  5
+
+  REDUCED MASS FOR INTERACTION =   3.694515569 ATOMIC MASS UNITS (DALTONS)
+
+  ENERGY-INDEPENDENT MATRICES WILL BE SAVED TEMPORARILY ON UNIT 30
+
+  ======================================================================================================================
+
+  INTERACTION TYPE IS    LINEAR RIGID ROTOR  -  ATOM.  
+
+  MOLECULAR QUANTUM NUMBERS OBTAINED FROM JMIN =  0,  JMAX = 26,  AND JSTEP = 2
+
+  ENERGY LEVELS OBTAINED FROM B(E) =    0.346691
+
+  QUANTUM NUMBERS FOR INTERACTING PAIR:
+  EACH PAIR STATE IS LABELLED BY  1 QUANTUM NUMBER 
+  EACH CHANNEL FUNCTION IS FORMED BY COMBINING A PAIR STATE WITH A VALUE OF L.
+  THE RESULTING BASIS SET IS ASYMPTOTICALLY DIAGONAL.
+
+  PAIR STATE     PAIR STATE QUANTUM NUMBERS    PAIR LEVEL     PAIR ENERGY (CM-1)
+                ---------        J ---------
+        1                        0                1             0.0000000
+        2                        2                2             2.0801484
+        3                        4                3             6.9338281
+        4                        6                4            14.5610390
+        5                        8                5            24.9617811
+        6                       10                6            38.1360545
+        7                       12                7            54.0838591
+        8                       14                8            72.8051949
+        9                       16                9            94.3000620
+       10                       18               10           118.5684603
+       11                       20               11           145.6103898
+       12                       22               12           175.4258506
+       13                       24               13           208.0148426
+       14                       26               14           243.3773659
+
+  ======================================================================================================================
+  GENERAL-PURPOSE POTENL ROUTINE (MAY 18)
+
+  UNEXPANDED POTENTIAL IS OBTAINED FROM VRTP ROUTINE.
+
+  A SUITABLE VRTP ROUTINE MUST BE SUPPLIED.
+ VRTP: loaded Veff0_grid.dat NR=         197  NT=          48
+ VRTP: R range [bohr]=   1.5000000000000000        25.000000000000000     
+ VRTP: theta range [rad]=   4.9583149999999999E-002   3.0920095000000001     
+  IHOMO = 2 SPECIFIES HOMONUCLEAR SYMMETRY.
+  USING  30-POINT QUADRATURE FOR THETA-1
+  HOMONUCLEAR SYMMETRY: ONLY HALF OF THE THETA-1 POINTS WILL BE USED
+
+  ANGULAR DEPENDENCE OF POTENTIAL EXPANDED IN TERMS OF
+  LEGENDRE POLYNOMIALS, P(LAMBDA).
+  POTENTIAL TERMS GENERATED FROM LMAX = 22 AND IHOMO = 2
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   1
+  WHICH HAS LAMBDA =   0
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   2
+  WHICH HAS LAMBDA =   2
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   3
+  WHICH HAS LAMBDA =   4
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   4
+  WHICH HAS LAMBDA =   6
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   5
+  WHICH HAS LAMBDA =   8
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   6
+  WHICH HAS LAMBDA =  10
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   7
+  WHICH HAS LAMBDA =  12
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   8
+  WHICH HAS LAMBDA =  14
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER   9
+  WHICH HAS LAMBDA =  16
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER  10
+  WHICH HAS LAMBDA =  18
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER  11
+  WHICH HAS LAMBDA =  20
+
+
+  INTERACTION POTENTIAL FOR EXPANSION TERM NUMBER  12
+  WHICH HAS LAMBDA =  22
+
+
+  POTENL PROCESSING FINISHED.
+
+  POTENTIAL RETURNED IN UNITS OF EPSIL  =  1.0000000     CM-1
+
+  ALL LENGTHS ARE IN UNITS OF ANGSTROM UNLESS OTHERWISE STATED
+
+  INTERACTION MATRIX USES  12 BLOCKS OF VL ARRAY FOR R-DEPENDENT TERMS IN POTENTIAL
+
+  ======================================================================================================================
+
+  PROPAGATION METHODS FOR COUPLED EQUATIONS SPECIFIED BY IPROPS =  5 AND IPROPL =  5
+
+  COUPLED EQUATIONS WILL BE PROPAGATED TOWARDS RMATCH IN 2 SEGMENTS
+
+  PROPAGATION RANGES ARE CONTROLLED BY VARIABLES RMIN, RMATCH AND RMAX, WITH INPUT VALUES
+  RMIN =   2.400     RMATCH =   6.000     RMAX =   20.00    
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  SEGMENT 1 WILL BE PROPAGATED OUTWARDS
+
+  FROM RMIN =      2.40 TO RMATCH =      6.00
+
+  COUPLED EQUATIONS SOLVED BY LOG-DERIVATIVE PROPAGATOR OF JOHNSON
+
+  PROPAGATION STEP SIZE DETERMINED USING DR =  3.000E-02
+  STEP SIZE CONSTANT THROUGHOUT RANGE
+  STEP SIZE MAY BE ADJUSTED SLIGHTLY SO THAT RANGE IS A WHOLE NUMBER OF STEPS
+
+  LOG-DERIVATIVE MATRIX INITIALISED IN THE LOCAL EIGENBASIS AT RMIN IN THE OUTWARD PROPAGATION PART
+  LOCALLY CLOSED CHANNELS INITIALISED WITH A WKB BOUNDARY CONDITION
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  SEGMENT 2 WILL BE PROPAGATED  INWARDS
+
+  TO RMATCH =      6.00 FROM RMAX =     20.00
+
+  COUPLED EQUATIONS SOLVED BY LOG-DERIVATIVE PROPAGATOR OF JOHNSON
+
+  INITIAL STEP SIZE TAKEN FROM SIZE OF FINAL STEP OF SHORT-RANGE PROPAGATION
+  STEP SIZE CONSTANT THROUGHOUT RANGE
+  STEP SIZE MAY BE ADJUSTED SLIGHTLY SO THAT RANGE IS A WHOLE NUMBER OF STEPS
+
+  LOG-DERIVATIVE MATRIX INITIALISED IN THE LOCAL EIGENBASIS AT RMAX IN THE INWARD PROPAGATION PART
+  LOCALLY CLOSED CHANNELS INITIALISED WITH A WKB BOUNDARY CONDITION
+  LOCALLY  OPEN  CHANNELS INITIALISED WITH THE VALUE  0.000E+00
+
+  ======================================================================================================================
+
+  PROGRAM WILL ATTEMPT TO CONVERGE ON BOUND STATES AS A FUNCTION OF ENERGY
+
+  FOR EACH LEVEL, THE BISECTION METHOD WILL BE USED UNTIL THE VWDB METHOD OFFERS RELIABLE CONVERGENCE.
+
+  VWDB CONVERGENCE WILL TERMINATE WHEN THE STEP SIZE IS LESS THAN 1.00000E-08 CM-1    
+
+  INPUT ENERGIES IN UNITS OF CM-1 BY DEFAULT.
+
+  PROGRAM WILL SEEK STATES WITH NODE COUNTS FROM    0 TO  99999
+  LYING IN ENERGY RANGE  -50.000     TO -1.00000E-06 CM-1    
+
+  ======================================================================================================================
+
+  TOTAL ANGULAR MOMENTUM JTOT RUNS FROM   0  TO     3  IN STEPS OF   1
+
+  EACH JTOT IS SPLIT INTO A MAXIMUM OF   2 SYMMETRY BLOCKS
+
+  CALCULATIONS WILL BE FOR SYMMETRY BLOCK   2  ONLY
+
+  INITIALIZATION DONE.  TIME WAS   0.02 CPU SECS.
+
+  ============================================= He-CO2 from Cartesian PES ==============================================
+  SCRATCH FILE OPENED ON UNIT           30
+
+  *****************************  ANGULAR MOMENTUM JTOT  =   0   AND SYMMETRY BLOCK  =    2  ****************************
+
+  CHANNEL FUNCTION LIST:
+
+  EACH CHANNEL FUNCTION IS FORMED BY COMBINING A PAIR STATE WITH A VALUE OF L.
+
+  CHANNEL  PAIR STATE    PAIR STATE QUANTUM NUMBERS            L        PAIR LEVEL   PAIR ENERGY (CM-1)
+                         ---------      J   ---------
+        1           1                   0                      0             1         0.0000000
+        2           2                   2                      2             2         2.0801484
+        3           3                   4                      4             3         6.9338281
+        4           4                   6                      6             4        14.5610390
+        5           5                   8                      8             5        24.9617811
+        6           6                  10                     10             6        38.1360545
+        7           7                  12                     12             7        54.0838591
+        8           8                  14                     14             8        72.8051949
+        9           9                  16                     16             9        94.3000620
+       10          10                  18                     18            10       118.5684603
+       11          11                  20                     20            11       145.6103898
+       12          12                  22                     22            12       175.4258506
+       13          13                  24                     24            13       208.0148426
+       14          14                  26                     26            14       243.3773659
+
+  NODE COUNT IMPLIES     0 STATES BELOW MINIMUM ENERGY =  -50.00000000     CM-1  
+  NODE COUNT IMPLIES     3 STATES BELOW MAXIMUM ENERGY = -1.0000000000E-06 CM-1  
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     1
+
+  CONVERGED ON STATE NUMBER     1 AT                              ENERGY =  -16.27239225     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -2.62980E-06
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.9533    0.9088   0   0   1
+   2   -0.2993    0.0896   2   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     2
+
+  CONVERGED ON STATE NUMBER     2 AT                              ENERGY =  -7.658546429     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -1.52063E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.7923    0.6278   0   0   1
+   2    0.6057    0.3669   2   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     3
+
+  CONVERGED ON STATE NUMBER     3 AT                              ENERGY =  -1.521456660     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  4.31292E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1   -0.6775    0.4591   0   0   1
+   2    0.6932    0.4805   2   2   2
+   3    0.2450    0.0600   4   4   3
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   6.00000E-02
+
+  ENERGY CONVERGED: E =  -16.27377959     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -16.27229976     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.659391820     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.658490069     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.522117291     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.521412618     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   0.12000    
+
+  ENERGY CONVERGED: E =  -16.27375504     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -16.27230140     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.6367E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.659490319     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.658483503     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   6.5666E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.522157129     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.521409962     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   2.6559E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  SCRATCH FILE OPENED ON UNIT           30
+
+  *****************************  ANGULAR MOMENTUM JTOT  =   1   AND SYMMETRY BLOCK  =    2  ****************************
+
+  CHANNEL FUNCTION LIST:
+
+  EACH CHANNEL FUNCTION IS FORMED BY COMBINING A PAIR STATE WITH A VALUE OF L.
+
+  CHANNEL  PAIR STATE    PAIR STATE QUANTUM NUMBERS            L        PAIR LEVEL   PAIR ENERGY (CM-1)
+                         ---------      J   ---------
+        1           1                   0                      1             1         0.0000000
+        2           2                   2                      1             2         2.0801484
+        3           2                   2                      3             2         2.0801484
+        4           3                   4                      3             3         6.9338281
+        5           3                   4                      5             3         6.9338281
+        6           4                   6                      5             4        14.5610390
+        7           4                   6                      7             4        14.5610390
+        8           5                   8                      7             5        24.9617811
+        9           5                   8                      9             5        24.9617811
+       10           6                  10                      9             6        38.1360545
+       11           6                  10                     11             6        38.1360545
+       12           7                  12                     11             7        54.0838591
+       13           7                  12                     13             7        54.0838591
+       14           8                  14                     13             8        72.8051949
+       15           8                  14                     15             8        72.8051949
+       16           9                  16                     15             9        94.3000620
+       17           9                  16                     17             9        94.3000620
+       18          10                  18                     17            10       118.5684603
+       19          10                  18                     19            10       118.5684603
+       20          11                  20                     19            11       145.6103898
+       21          11                  20                     21            11       145.6103898
+       22          12                  22                     21            12       175.4258506
+       23          12                  22                     23            12       175.4258506
+       24          13                  24                     23            13       208.0148426
+       25          13                  24                     25            13       208.0148426
+       26          14                  26                     25            14       243.3773659
+       27          14                  26                     27            14       243.3773659
+
+  NODE COUNT IMPLIES     0 STATES BELOW MINIMUM ENERGY =  -50.00000000     CM-1  
+  NODE COUNT IMPLIES     4 STATES BELOW MAXIMUM ENERGY = -1.0000000000E-06 CM-1  
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     1
+
+  CONVERGED ON STATE NUMBER     1 AT                              ENERGY =  -15.70382892     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -7.80275E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.9354    0.8750   1   0   1
+   2    0.3123    0.0975   1   2   2
+   3   -0.1586    0.0252   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     2
+
+  CONVERGED ON STATE NUMBER     2 AT                              ENERGY =  -7.848552567     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  3.18394E-11
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.7143    0.5103   1   0   1
+   2   -0.6698    0.4486   1   2   2
+   3    0.1896    0.0359   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     3
+
+  CONVERGED ON STATE NUMBER     3 AT                              ENERGY =  -5.860440567     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -8.29807E-11
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.6402    0.4099   1   0   1
+   2    0.2209    0.0488   1   2   2
+   3    0.7326    0.5367   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     4
+
+  CONVERGED ON STATE NUMBER     4 AT                              ENERGY =  -2.243047198     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  7.60624E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.4580    0.2098   1   0   1
+   2    0.7453    0.5555   1   2   2
+   3   -0.2351    0.0553   3   2   2
+   4    0.4202    0.1765   3   4   3
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   6.00000E-02
+
+  ENERGY CONVERGED: E =  -15.70519948     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -15.70373755     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.849389626     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.848496764     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -5.861225568     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -5.860388234     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -2.243834238     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -2.242994729     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   0.12000    
+
+  ENERGY CONVERGED: E =  -15.70517500     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -15.70373918     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.6321E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.849472931     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.848491210     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   5.5536E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -5.861284565     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -5.860384300     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   3.9331E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -2.243896942     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -2.242990549     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   4.1802E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  SCRATCH FILE OPENED ON UNIT           30
+
+  *****************************  ANGULAR MOMENTUM JTOT  =   2   AND SYMMETRY BLOCK  =    2  ****************************
+
+  CHANNEL FUNCTION LIST:
+
+  EACH CHANNEL FUNCTION IS FORMED BY COMBINING A PAIR STATE WITH A VALUE OF L.
+
+  CHANNEL  PAIR STATE    PAIR STATE QUANTUM NUMBERS            L        PAIR LEVEL   PAIR ENERGY (CM-1)
+                         ---------      J   ---------
+        1           2                   2                      0             2         2.0801484
+        2           1                   0                      2             1         0.0000000
+        3           2                   2                      2             2         2.0801484
+        4           3                   4                      2             3         6.9338281
+        5           2                   2                      4             2         2.0801484
+        6           3                   4                      4             3         6.9338281
+        7           4                   6                      4             4        14.5610390
+        8           3                   4                      6             3         6.9338281
+        9           4                   6                      6             4        14.5610390
+       10           5                   8                      6             5        24.9617811
+       11           4                   6                      8             4        14.5610390
+       12           5                   8                      8             5        24.9617811
+       13           6                  10                      8             6        38.1360545
+       14           5                   8                     10             5        24.9617811
+       15           6                  10                     10             6        38.1360545
+       16           7                  12                     10             7        54.0838591
+       17           6                  10                     12             6        38.1360545
+       18           7                  12                     12             7        54.0838591
+       19           8                  14                     12             8        72.8051949
+       20           7                  12                     14             7        54.0838591
+       21           8                  14                     14             8        72.8051949
+       22           9                  16                     14             9        94.3000620
+       23           8                  14                     16             8        72.8051949
+       24           9                  16                     16             9        94.3000620
+       25          10                  18                     16            10       118.5684603
+       26           9                  16                     18             9        94.3000620
+       27          10                  18                     18            10       118.5684603
+       28          11                  20                     18            11       145.6103898
+       29          10                  18                     20            10       118.5684603
+       30          11                  20                     20            11       145.6103898
+       31          12                  22                     20            12       175.4258506
+       32          11                  20                     22            11       145.6103898
+       33          12                  22                     22            12       175.4258506
+       34          13                  24                     22            13       208.0148426
+       35          12                  22                     24            12       175.4258506
+       36          13                  24                     24            13       208.0148426
+       37          14                  26                     24            14       243.3773659
+       38          13                  24                     26            13       208.0148426
+       39          14                  26                     26            14       243.3773659
+       40          14                  26                     28            14       243.3773659
+
+  NODE COUNT IMPLIES     0 STATES BELOW MINIMUM ENERGY =  -50.00000000     CM-1  
+  NODE COUNT IMPLIES     6 STATES BELOW MAXIMUM ENERGY = -1.0000000000E-06 CM-1  
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     1
+
+  CONVERGED ON STATE NUMBER     1 AT                              ENERGY =  -14.79891404     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -7.37808E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1   -0.6517    0.4247   0   2   2
+   2    0.7465    0.5573   2   0   1
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     2
+
+  CONVERGED ON STATE NUMBER     2 AT                              ENERGY =  -13.99462523     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 = -1.54313E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.4616    0.2130   0   2   2
+   2    0.6086    0.3703   2   0   1
+   3    0.6427    0.4131   2   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     3
+
+  CONVERGED ON STATE NUMBER     3 AT                              ENERGY =  -7.409696368     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  3.12042E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.5319    0.2829   0   2   2
+   2    0.6924    0.4794   2   0   1
+   3   -0.4643    0.2155   2   2   2
+   5    0.1254    0.0157   4   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     4
+
+  CONVERGED ON STATE NUMBER     4 AT                              ENERGY =  -4.115430665     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  3.21982E-11
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1   -0.3021    0.0912   0   2   2
+   2    0.6830    0.4665   2   0   1
+   5    0.6613    0.4373   4   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     5
+
+  CONVERGED ON STATE NUMBER     5 AT                              ENERGY =  -3.196725053     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  9.53449E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.7872    0.6196   0   2   2
+   2   -0.1883    0.0354   2   0   1
+   4    0.5378    0.2892   2   4   3
+   5    0.1983    0.0393   4   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     6
+
+  CONVERGED ON STATE NUMBER     6 AT                              ENERGY = -0.6896206530     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  2.03801E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.2447    0.0599   0   2   2
+   2    0.4045    0.1637   2   0   1
+   3    0.8279    0.6855   2   2   2
+   6    0.2773    0.0769   4   4   3
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   6.00000E-02
+
+  ENERGY CONVERGED: E =  -14.80027918     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -14.79882304     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -13.99597380     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -13.99453532     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.410516991     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.409641660     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -4.116158306     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -4.115382155     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -3.197560450     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   5, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -3.196669360     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E = -0.6902721965     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   6, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                              -0.6895772168     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   0.12000    
+
+  ENERGY CONVERGED: E =  -14.80025446     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -14.79882468     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.6480E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -13.99594883     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -13.99453699     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.6642E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -7.410599604     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -7.409636152     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   5.5076E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -4.116208216     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -4.115378828     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   3.3273E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -3.197625912     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   5, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -3.196664996     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   4.3641E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E = -0.6902916235     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   6, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                              -0.6895759217     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   1.2951E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+  SCRATCH FILE OPENED ON UNIT           30
+
+  *****************************  ANGULAR MOMENTUM JTOT  =   3   AND SYMMETRY BLOCK  =    2  ****************************
+
+  CHANNEL FUNCTION LIST:
+
+  EACH CHANNEL FUNCTION IS FORMED BY COMBINING A PAIR STATE WITH A VALUE OF L.
+
+  CHANNEL  PAIR STATE    PAIR STATE QUANTUM NUMBERS            L        PAIR LEVEL   PAIR ENERGY (CM-1)
+                         ---------      J   ---------
+        1           2                   2                      1             2         2.0801484
+        2           3                   4                      1             3         6.9338281
+        3           1                   0                      3             1         0.0000000
+        4           2                   2                      3             2         2.0801484
+        5           3                   4                      3             3         6.9338281
+        6           4                   6                      3             4        14.5610390
+        7           2                   2                      5             2         2.0801484
+        8           3                   4                      5             3         6.9338281
+        9           4                   6                      5             4        14.5610390
+       10           5                   8                      5             5        24.9617811
+       11           3                   4                      7             3         6.9338281
+       12           4                   6                      7             4        14.5610390
+       13           5                   8                      7             5        24.9617811
+       14           6                  10                      7             6        38.1360545
+       15           4                   6                      9             4        14.5610390
+       16           5                   8                      9             5        24.9617811
+       17           6                  10                      9             6        38.1360545
+       18           7                  12                      9             7        54.0838591
+       19           5                   8                     11             5        24.9617811
+       20           6                  10                     11             6        38.1360545
+       21           7                  12                     11             7        54.0838591
+       22           8                  14                     11             8        72.8051949
+       23           6                  10                     13             6        38.1360545
+       24           7                  12                     13             7        54.0838591
+       25           8                  14                     13             8        72.8051949
+       26           9                  16                     13             9        94.3000620
+       27           7                  12                     15             7        54.0838591
+       28           8                  14                     15             8        72.8051949
+       29           9                  16                     15             9        94.3000620
+       30          10                  18                     15            10       118.5684603
+       31           8                  14                     17             8        72.8051949
+       32           9                  16                     17             9        94.3000620
+       33          10                  18                     17            10       118.5684603
+       34          11                  20                     17            11       145.6103898
+       35           9                  16                     19             9        94.3000620
+       36          10                  18                     19            10       118.5684603
+       37          11                  20                     19            11       145.6103898
+       38          12                  22                     19            12       175.4258506
+       39          10                  18                     21            10       118.5684603
+       40          11                  20                     21            11       145.6103898
+       41          12                  22                     21            12       175.4258506
+       42          13                  24                     21            13       208.0148426
+       43          11                  20                     23            11       145.6103898
+       44          12                  22                     23            12       175.4258506
+       45          13                  24                     23            13       208.0148426
+       46          14                  26                     23            14       243.3773659
+       47          12                  22                     25            12       175.4258506
+       48          13                  24                     25            13       208.0148426
+       49          14                  26                     25            14       243.3773659
+       50          13                  24                     27            13       208.0148426
+       51          14                  26                     27            14       243.3773659
+       52          14                  26                     29            14       243.3773659
+
+  NODE COUNT IMPLIES     0 STATES BELOW MINIMUM ENERGY =  -50.00000000     CM-1  
+  NODE COUNT IMPLIES     6 STATES BELOW MAXIMUM ENERGY = -1.0000000000E-06 CM-1  
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     1
+
+  CONVERGED ON STATE NUMBER     1 AT                              ENERGY =  -13.54840483     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  5.03970E-08
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.8078    0.6525   1   2   2
+   2    0.1372    0.0188   1   4   3
+   3   -0.5606    0.3142   3   0   1
+   4    0.1002    0.0100   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     2
+
+  CONVERGED ON STATE NUMBER     2 AT                              ENERGY =  -11.91665924     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  2.02002E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.3075    0.0945   1   2   2
+   3    0.7221    0.5215   3   0   1
+   4    0.6151    0.3784   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     3
+
+  CONVERGED ON STATE NUMBER     3 AT                              ENERGY =  -6.416840664     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  1.20121E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.6149    0.3781   1   2   2
+   3    0.6620    0.4382   3   0   1
+   4   -0.4018    0.1614   3   2   2
+   7    0.1030    0.0106   5   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     4
+
+  CONVERGED ON STATE NUMBER     4 AT                              ENERGY =  -3.771408352     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  2.15277E-10
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.7222    0.5216   1   2   2
+   2   -0.5711    0.3261   1   4   3
+   3   -0.3642    0.1327   3   0   1
+   4    0.1046    0.0109   3   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     5
+
+  CONVERGED ON STATE NUMBER     5 AT                              ENERGY =  -1.870606248     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  1 =  5.73041E-09
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1   -0.2227    0.0496   1   2   2
+   2   -0.1093    0.0120   1   4   3
+   3    0.7179    0.5153   3   0   1
+   7    0.6446    0.4155   5   2   2
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  SEARCHING FOR BOUND STATE NUMBER     6
+
+  CONVERGED ON STATE NUMBER     6 AT                              ENERGY =  -1.393887096     CM-1  
+
+  SMALLEST EIGENVALUE OF MATCHING MATRIX IS NUMBER  2 =  1.31379E-11
+
+  WITH PRINCIPAL EIGENVECTOR COMPONENTS
+  CHAN     VEC    VEC**2   L   QUANTUM NUMBERS
+
+   1    0.3659    0.1339   1   2   2
+   3   -0.2958    0.0875   3   0   1
+   4   -0.5739    0.3294   3   2   2
+   5    0.6519    0.4250   3   4   3
+   7    0.1230    0.0151   5   2   2
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   6.00000E-02
+
+  ENERGY CONVERGED: E =  -13.54974618     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -13.54831540     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -11.91792432     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -11.91657490     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -6.417635785     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -6.416787656     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -3.772235809     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -3.771353188     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.871273644     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   5, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.870561755     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.394680779     CM-1 FOR DR =  6.000E-02
+
+  FOR BOUND STATE   6, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.393834183     CM-1
+  THIS IS THE BEST AVAILABLE EXTRAPOLATED VALUE FROM THIS SET OF CALCULATIONS.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ----------------------------------------------------------------------------------------------------------------------
+  TESTING CONVERGENCE OF PROPAGATION PARAMETERS: DRS CHANGED TO   0.12000    
+
+  ENERGY CONVERGED: E =  -13.54972205     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   1, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -13.54831701     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.6088E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -11.91790095     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   2, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -11.91657646     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY  -1.5581E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -6.417719178     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   3, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -6.416782097     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   5.5595E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -3.772286996     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   4, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -3.771349776     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   3.4125E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.871322636     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   5, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.870558488     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   3.2661E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+  ENERGY CONVERGED: E =  -1.394729963     CM-1 FOR DR =  0.120    
+
+  FOR BOUND STATE   6, RICHARDSON EXTRAPOLATION BASED ON ERROR PROPORTIONAL TO DR**4 FOR IPROPS =  5
+  GIVES EXTRAPOLATED ENERGY =                                               -1.393830904     CM-1
+  THIS DIFFERS FROM FIRST EXTRAPOLATED VALUE BY   3.2789E-06
+  SUGGESTING THAT THE FIRST VALUE COULD BE UNCONVERGED BY UP TO THIS AMOUNT.
+
+  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+  -- BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND --
+ |                                                                            |
+ |          Bound states of interacting pairs of atoms and molecules          |
+ |                                                                            |
+ |              Copyright (C) 2025 J. M. Hutson & C. R. Le Sueur              |
+ |                                                                            |
+ |                               Version 2025.0                               |
+ |                                                                            |
+ |                      This run used      11.83 cpu secs                     |
+ |                                                                            |
+  -- BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND ------ BOUND --

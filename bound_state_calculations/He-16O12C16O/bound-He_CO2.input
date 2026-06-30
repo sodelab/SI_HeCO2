@@ -1,0 +1,21 @@
+ &INPUT
+    LABEL  = 'He-CO2 from Cartesian PES',
+    URED   =   3.668783066853,
+    IPRINT = 5, IBDSUM=4, ISCRU=30,
+    RMIN   = 2.0 , RMATCH = 6.0, RMAX = 20.0,
+    IPROPS = 5, IPROPL = 5, DR = 0.03,
+    JTOTL  = 0, JTOTU  = 0, IBFIX=2, NCONV = 2,
+    EMIN   = -50.0, EMAX = -0.000001, DTOL = 1e-8,
+ /
+
+ &BASIS
+    ITYPE = 1,
+    ROTI  = 0.390133617939,
+    JMIN=0, JMAX=34, JSTEP=1,
+ /
+
+ &POTL
+    LMAX = 30, IHOMO=2,
+    LVRTP = .TRUE., NPT=48,
+ /
+ 0
