@@ -1,0 +1,28 @@
+# ----------------------------------------------- #
+# ** Makefile for rgCO2 routine **
+# ----------------------------------------------- #
+
+2BRG = CO2He
+2B = mbCO2RG
+
+CPP = g++
+OP = -O2
+CPPFLAGS = -fPIC -std=c++0x
+SONAME = -install_name
+INC = -I/usr/include
+LIB = -lstdc++
+
+SRC = $(wildcard *.cpp)
+INC = $(wildcard *.h)
+OBJ = $(SRC:.cpp=.o)
+
+all: $(2B).so
+
+$(2B).so: $(OBJ) $(2B).cpp
+	$(CPP) $(OP) -shared -o lib$(2BRG).so $(2B).o x1b.o x2b.o poly-1b.o poly-2b.o $(LIB) 
+
+clean: 
+	rm -f *.o *.so
+
+%.o:%.cpp
+	$(CPP) $(CPPFLAGS) $(OP) -c $<
