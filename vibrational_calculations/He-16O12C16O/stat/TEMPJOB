@@ -1,0 +1,45 @@
+# Example CO2He stationary point
+# optimization and harmonic 
+# frequency calculation
+
+JOBTYPE = JOBTYPE_STAT
+
+# Optimizing MINimum geometry
+STAT_TYPE = MIN
+
+# Use Z-matrix coordinate system
+COORD = ZMAT
+%ZMAT
+He
+C1 1 R12
+O2 2 R13 1 A213
+O3 2 R14 1 A214 3 D3214
+%
+
+# Masses
+MASS = He C O O
+
+# Select PES library
+PES = /home/oosode/project/rgCO2/rgCO2-stampede/pes/HeCO2/CO2He/libCO2He.so
+
+# Starting coordinates based on Z-martix
+# distances in angstroms, D indicates degrees
+#REF1 = 3.072126158394488 1.162212327901127 D89.987379264934717 1.162212327743621 D89.987378418022047 D179.999999999995111 
+REF1 = 3.074804384683565 1.162212105224351 D89.987891669189310 1.162212105293320 D89.987885020988628 D179.999999987358706 
+
+# Select BFGS optimization
+STAT_OPT = BFGS
+
+# Set gradient norm tolerance to 1e-1
+STAT_TOL = 1e-1
+STAT_MAX_ITER = 100000
+
+# Calculate frequencies after optimization
+CALC_FREQ
+HESS_STEP = 0.005
+GRAD_STEP = 1e-6
+CALC_RECT
+
+# Print verbose optimization output
+STAT_VERBOSE
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH -J he-vscf           # Job name
+#SBATCH -o he-vscf.o%j       # Name of stdout output file
+#SBATCH -e he-vscf.e%j       # Name of stderr error file
+#SBATCH -p normal            # Queue (partition) name
+#SBATCH -N 1                 # Total # of nodes 
+#SBATCH -n 64                # Total # of mpi tasks
+#SBATCH -t 24:00:00          # Run time (hh:mm:ss)
+#SBATCH --mail-user=osode@calstatela.edu
+#SBATCH --mail-type=all    # Send email at begin and end of job
+#SBATCH -A TG-CHE170085       # Allocation name (req'd if you have more than 1)
+
+# Other commands must follow all #SBATCH directives...
+
+pwd
+date
+
+# Set thread count (default value is 1)...
+export OMP_NUM_THREADS=64
+
+time /home1/02216/oosode/software/nmode-vibrations/nitrogen-fork/bin/nitrogen VSCF.job > VSCF.out
+
+# ---------------------------------------------------

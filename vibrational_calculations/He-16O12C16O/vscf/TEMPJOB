@@ -1,0 +1,43 @@
+
+JOBTYPE = JOBTYPE_VSCF
+
+# Use Z-matrix coordinate system
+COORD = ZMAT
+%ZMAT
+He
+C1 1 R12
+O2 2 R13 1 A213
+O3 2 R14 1 A214 3 D3214
+%
+
+# Masses
+MASS = He C O O
+
+# Transform ZMAT coordinates
+# to normal coordinates as determined
+# by CO2HE_STAT.job
+COORD_TRANS = NC_TRANS
+
+# Select PES
+PES = /home/oosode/project/rgCO2/rgCO2-stampede/pes/HeCO2/CO2He/libCO2He.so
+
+# Define 1D DVR bases
+Q1 = AC HO 15 -5 5
+Q2 = AC HO 15 -5 5
+Q3 = AC HO 15 -5 5
+Q4 = AC HO 15 -5 5
+Q5 = AC HO 15 -5 5
+Q6 = AC HO 15 -5 5
+
+# VSCF parameters
+# Calculate all 0, 1, 2, 3 quantum states
+TARGET_MAXV = 3
+
+# Expand all Hamiltonian terms to 
+# 3-body (exact)
+EXPANSION = 3,3,3,3,3,-1,-1
+REF1 = 0 0 0 0 0 0
+
+# Set VSCF energy convergence tolerance (cm-1)
+VSCF_CONV = 1e-6
+
