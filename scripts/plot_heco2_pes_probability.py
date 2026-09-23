@@ -1,5 +1,202 @@
 #!/usr/bin/env python3
-"""Plot the effective He--CO2 PES and J=0 ground-state probability density."""
+"""This script reads a bound-state wavefunction and a 2D intermolecular PES, then
+combines them to visualize the ground-state probability distribution in the
+(R, theta) plane.
+
+Overview
+--------
+The script is built for quantum-bound-state analysis of the He--CO2 complex. It takes
+as input:
+
+1. A formatted BOUND wavefunction file produced by a bound-state quantum chemistry or
+   scattering calculation.
+2. A PES file containing the effective intermolecular potential energy surface as a
+   function of intermolecular distance R and angle theta.
+
+Its purpose is to compare the spatial probability density of the bound state with the
+underlying potential energy landscape. The output is a publication-style two-panel
+figure showing the PES contour map and the corresponding ground-state probability
+distribution.
+
+Why the script exists
+---------------------
+For a weakly bound van der Waals complex such as He--CO2, the wavefunction describes
+where the complex is most likely to be found. The PES tells us the energetic landscape
+that traps the complex. By combining the two, the script helps answer questions like:
+
+- Where is the molecule most likely to be found in the angular coordinate theta?
+- What is the average radial separation <R> of the complex?
+- Where is the PES minimum located in geometry space?
+- How does the most probable quantum distribution compare to the equilibrium geometry
+  of the interaction potential?
+
+The script is therefore a practical analysis and plotting utility for molecular
+spectroscopy and intermolecular dynamics work.
+
+Wavefunction parsing
+--------------------
+The function parse_bound_state() reads a text file containing a bound-state solution.
+Quantum codes often print structured wavefunction data with a header that includes the
+state number, energy, basis size, and number of radial points.
+
+The parser looks for a pattern like:
+
+    # WAVEFUNCTION FOR STATE 1 AT ENERGY ...
+
+This identifies the state and extracts its energy. It then finds the section of the file
+that reports the total number of radial points, as well as metadata telling it how many
+basis functions are used in the angular expansion.
+
+The output is a NumPy array of shape (n_points, n_channels + 1):
+
+    [R, channel_1, channel_2, ..., channel_n]
+
+where R is the radial grid and the remaining values are amplitudes for each angular
+channel. These amplitudes are the fundamental representation of the bound-state wavefunction.
+
+PES loading
+-----------
+The load_pes() function reads the PES file with np.loadtxt(). It assumes each row has
+three values:
+
+    R, theta, V
+
+The code extracts the unique grid values in R and theta, validates that the grid is
+complete, and reshapes the interaction energy values into a 2D array of shape
+(len(R), len(theta)).
+
+The energy values are converted from Hartree to wavenumbers using:
+
+    HARTREE_TO_WAVENUMBER = 219474.6313705
+
+This conversion matches the unit conventions of spectroscopic and quantum-chemistry
+analysis where energies are often reported in cm^-1.
+
+Reconstructing the probability density
+--------------------------------------
+The function reconstruct_probability() converts the radial amplitudes into a probability
+in the continuum of R and theta. The angular dependence is expanded in Legendre
+polynomials:
+
+    P_j(cos(theta))
+
+with a normalization factor:
+
+    sqrt((2j + 1) / 2)
+
+This creates an angular basis. The radial amplitudes are projected onto that basis via a
+matrix multiplication, producing a reduced wavefunction:
+
+    reduced_wavefunction = radial_amplitudes @ angular_basis
+
+The 2D probability density per element dR dtheta is then:
+
+    probability = reduced_wavefunction^2 * sin(theta)
+
+The factor sin(theta) is the Jacobian associated with spherical/angular coordinates. This
+ensures that the density is properly weighted when integrating over theta.
+
+Normalization and observable quantities
+--------------------------------------
+Inside main(), the script calculates the radial probability density by summing the squared
+amplitudes across all angular channels:
+
+    radial_density = sum(amplitudes**2, axis=1)
+
+Using a trapezoidal integration over the radial grid, it normalizes the 1D radial density
+and computes the average radius:
+
+    <R> = trapz(R * radial_density, R) / trapz(radial_density, R)
+
+It also computes the radial variance and standard deviation:
+
+    sigma_R = sqrt(<R^2> - <R>^2)
+
+These values describe how spread out the ground-state density is along the radial coordinate.
+
+The script also evaluates the full 2D probability density on a finely sampled theta grid,
+normalizes it over both coordinates, and finds the location (R, theta) of maximum probability.
+This identifies the most likely geometry of the bound state in the intermolecular coordinate system.
+
+PES minimum and geometry analysis
+--------------------------------
+The script interpolates the PES using RectBivariateSpline(), a smooth 2D cubic spline,
+and then minimizes the energy numerically with scipy.optimize.minimize.
+
+This yields the equilibrium geometry of the PES:
+
+    (R_e, theta_e, V_min)
+
+which corresponds to the minimum energy geometry of the interaction potential. The location
+is marked on the PES plot as a black star and annotated with the equilibrium distance and
+angle.
+
+Plot generation
+---------------
+The script creates a two-panel Matplotlib figure.
+
+Left panel (a): PES contour plot
+- R is plotted on the x-axis.
+- theta is plotted on the y-axis, converted from radians to degrees.
+- The PES is shown as filled contours using a red-blue diverging colormap.
+- The zero-energy contour is drawn as a dashed black line.
+- The PES minimum is marked with a star and labeled with R_e and theta_e.
+
+Right panel (b): J = 0 probability density
+- The x-axis is the radial coordinate R.
+- The y-axis is theta in degrees.
+- The reconstructed probability density is drawn as filled contours.
+- Selected contour levels (0.1, 0.5, 0.9 relative probability) are overlaid.
+- The mean radius <R> is shown as a red dashed vertical line.
+- The absolute probability maximum is marked with a circle.
+
+The plotting style is tuned for a clean publication-quality figure, with carefully chosen
+axis limits, fonts, tick marks, and colorbars.
+
+Output files
+------------
+The script saves the figure to three formats:
+
+- PDF
+- SVG
+- PNG
+
+It writes the outputs with a user-specified stem via the --output flag. These files are
+typically used directly in manuscripts, presentations, or analysis reports.
+
+Command-line usage
+------------------
+The script is invoked as:
+
+    python scripts/plot_heco2_pes_probability.py <wavefunction_file> <pes_file> \
+        --state 1 --output heco2_pes_probability
+
+where:
+- wavefunction_file is the formatted BOUND wavefunction output,
+- pes_file is the R-theta effective PES data,
+- --state selects the bound state to analyze,
+- --output defines the output file prefix.
+
+At the end, the script prints summary information to the terminal, including:
+- bound-state energy,
+- wavefunction norm,
+- average radius <R>,
+- radial standard deviation sigma_R,
+- maximum probability location,
+- PES minimum geometry and well depth.
+
+Overall significance
+--------------------
+This script is a bridge between quantum structure calculations and geometric visualization.
+It turns a bound-state wavefunction into a physically interpretable probability map and then
+compares that map with the effective interaction potential. The result is a compact, visual
+representation of where the He--CO2 complex is most likely to reside and how that distribution
+relates to the energetically preferred geometry.
+
+In short, the program reads quantum-chemistry output, reconstructs the probability density,
+locates the important geometric features of both the wavefunction and the PES, and exports a
+publication-ready figure summarizing the physics of the bound complex.
+"""
 
 from __future__ import annotations
 
