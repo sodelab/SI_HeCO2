@@ -1,0 +1,25 @@
+#!/bin/bash
+#SBATCH -J vci-barrel        # Job name
+#SBATCH -o vci-barrel.o%j    # Name of stdout output file
+#SBATCH -e vci-barrel.e%j    # Name of stderr error file
+#SBATCH -p long              # Queue (partition) name
+#SBATCH -N 1                 # Total # of nodes 
+#SBATCH -n 64                # Total # of mpi tasks
+#SBATCH -t 120:00:00         # Run time (hh:mm:ss)
+#SBATCH --mail-user=osode@calstatela.edu
+#SBATCH --mail-type=all      # Send email at begin and end of job
+#SBATCH -A TG-CHE170085      # Allocation name (req'd if you have more than 1)
+
+# Other commands must follow all #SBATCH directives...
+
+pwd
+date
+
+# Set thread count (default value is 1)...
+export OMP_NUM_THREADS=4
+
+# Launch MPI code... 
+
+time /home1/02216/oosode/software/nitrogen_v1.9/nitrogen/bin/nitrogen BARREL_VCI_MBCO2.job > BARREL_VCI_MBCO2.out  # Use ibrun instead of mpirun or mpiexec
+
+# ---------------------------------------------------

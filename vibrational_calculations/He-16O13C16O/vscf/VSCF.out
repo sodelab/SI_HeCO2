@@ -1,0 +1,2605 @@
+#################################
+NITROGEN                         
+  Numerical and                  
+  Iterative                      
+  Techniques for                 
+ ROvibronic energies with        
+GENeral internal coordinates     
+                                 
+PBC,2013-2017                    
+Release version (1.9), Linux build
+OpenMP Parallelization
+Compiled Feb 21 2024, 09:24:35
+Executed: Mon Mar 18 14:39:24 2024
+#################################
+
+Loading job file: "VSCF.job"
+-----BEGIN JOB FILE CONTENT-----
+> 
+> JOBTYPE = JOBTYPE_VSCF
+> 
+> # Use Z-matrix coordinate system
+> COORD = ZMAT
+> %ZMAT
+> He
+> C1 1 R12
+> O2 2 R13 1 A213
+> O3 2 R14 1 A214 3 D3214
+> %
+> 
+> # Masses
+> MASS = He C-13 O O
+> 
+> # Transform ZMAT coordinates
+> # to normal coordinates as determined
+> # by CO2HE_STAT.job
+> COORD_TRANS = NC_TRANS
+> 
+> # Select PES
+> PES = /home/oosode/project/rgCO2/rgCO2-stampede/pes/HeCO2/CO2He/libCO2He.so
+> 
+> # Define 1D DVR bases
+> Q1 = AC HO 15 -5 5
+> Q2 = AC HO 15 -5 5
+> Q3 = AC HO 15 -5 5
+> Q4 = AC HO 15 -5 5
+> Q5 = AC HO 15 -5 5
+> Q6 = AC HO 15 -5 5
+> 
+> # VSCF parameters
+> # Calculate all 0, 1, 2, 3 quantum states
+> TARGET_MAXV = 3
+> 
+> # Expand all Hamiltonian terms to 
+> # 3-body (exact)
+> EXPANSION = 3,3,3,3,3,-1,-1
+> REF1 = 0 0 0 0 0 0
+> 
+> # Set VSCF energy convergence tolerance (cm-1)
+> VSCF_CONV = 1e-6
+> 
+> 
+------END JOB FILE CONTENT------
+
+### PARSING JOB FILE ###
+
+JOBTYPE = JOBTYPE_VSCF
+# of CPUs:	128
+# of thrs:	128
+sizeof(void *) = 8
+max size_t = 18446744073709551615
+
+Atom | ZMAT entry:              
+--------------------------------
+  1  | He
+  2  | C1 1 R12
+  3  | O2 2 R13 1 A213
+  4  | O3 2 R14 1 A214 3 D3214
+
+# of non-dummy ZMAT atoms = 4
+# of non-fixed ZMAT coord = 6
+
+Loading T-type coordinate transformation (COORD_TRANS)
+Coordinate T matrix and t0, f vectors: 
+-------------------------------------- 
+  Q1 :   +0.0006    -0.4600    -1.9876    +0.4600    +1.9881    +0.0000  ;    -0.0027 ;  0
+  Q2 :   -2.4538    -0.0014    -1.0208    -0.0009    -1.0188    +0.0000  ;   +10.7446 ;  0
+  Q3 :   -0.0003    +0.0000    +0.0988    -0.0000    +0.0988    +7.7825  ;   -24.7592 ;  0
+  Q4 :   +0.0223    -0.0003    -7.7729    -0.0003    -7.7729    +0.0989  ;   +24.0372 ;  0
+  Q5 :   -0.0045   +17.9116    +0.0011   +17.9116    +0.0011    +0.0000  ;   -41.6239 ;  0
+  Q6 :   -0.0000   +12.6282    -0.0032   -12.6282    +0.0032    -0.0000  ;    +0.0000 ;  0
+
+Computing inverse of T...LU OK...OK
+Coordinate system: ZMAT (TRANS)
+N = 4, Nq = 6
+
+ Atom | Isotope | Atomic Mass (/u) | Nuclear spin 
+--------------------------------------------------
+   1  |     He  |   4.00260325415  | 0            
+   2  |   C-13  |  13.00335483780  | 1/2          
+   3  |      O  |  15.99491461956  | 0            
+   4  |      O  |  15.99491461956  | 0            
+--------------------------------------------------
+
+Loading user reference geometries:
+----------------------------------
+REF1 = [0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000]
+
+ Coord. |   Desc.   | Activity |             Specification             
+-----------------------------------------------------------------------
+   Q1   | Q1'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+   Q2   | Q2'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+   Q3   | Q3'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+   Q4   | Q4'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+   Q5   | Q5'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+   Q6   | Q6'       |  ACTIVE  | HO, 15:[-5.0000,5.0000]              
+-----------------------------------------------------------------------
+ # of active coords:        6
+ # of constrained coords:   0
+ # of grid points:          11390625
+
+BFPERM = 0 (default), (x,y,z) <--> (e1,e2,e3)
+
+Total angular momentum: J = 0 (default)
+
+Loading PES shared library from "/home/oosode/project/rgCO2/rgCO2-stampede/pes/HeCO2/CO2He/libCO2He.so":
+N = 4
+Note: cannot import PES calcGradient subroutine. Using numerical gradient.
+PES_GRAD_STEP = 1.00E-05 (default)
+PESPERM = 1 2 3 4 (default)
+PES imported successfully
+DEREFERENCE = [ 0 0 0 0 0 0 ] (default)
+VSCF_CONV = 1.0E-06 cm^-1
+VSCF_SAMPLE_NX = 0 (default)
+VSCF_SAMPLE_SCALE = 1.000000 (default)
+POST_VHF = NONE (default)
+TARGET = [0,0,0,0,0,0] (default)
+TARGET_START = 1 (default)
+### PARSING COMPLETE ###
+
+Calculating Hamiltonian expansions
+EXPANSION = [NV,NG1,NG2,NU,NVT,NGRV,NGRR] = [3,3,3,3,3,-1,-1]
+
+Calculating PES expansion...
+Memory estimate = 0.541 MBytes 
+Calc. time estimate = 0.20881 secs (single thread)
+Complete (0.10125 sec)
+
+Calculating KEO expansion...
+Memory estimate = 15.160 MBytes 
+Complete (6.37490 sec)
+
+Target list:
+--------------
+[  1] : [ 0 0 0 0 0 0 ]
+[  2] : [ 0 0 0 0 0 1 ]
+[  3] : [ 0 0 0 0 0 2 ]
+[  4] : [ 0 0 0 0 0 3 ]
+[  5] : [ 0 0 0 0 1 0 ]
+[  6] : [ 0 0 0 0 1 1 ]
+[  7] : [ 0 0 0 0 1 2 ]
+[  8] : [ 0 0 0 0 2 0 ]
+[  9] : [ 0 0 0 0 2 1 ]
+[ 10] : [ 0 0 0 0 3 0 ]
+[ 11] : [ 0 0 0 1 0 0 ]
+[ 12] : [ 0 0 0 1 0 1 ]
+[ 13] : [ 0 0 0 1 0 2 ]
+[ 14] : [ 0 0 0 1 1 0 ]
+[ 15] : [ 0 0 0 1 1 1 ]
+[ 16] : [ 0 0 0 1 2 0 ]
+[ 17] : [ 0 0 0 2 0 0 ]
+[ 18] : [ 0 0 0 2 0 1 ]
+[ 19] : [ 0 0 0 2 1 0 ]
+[ 20] : [ 0 0 0 3 0 0 ]
+[ 21] : [ 0 0 1 0 0 0 ]
+[ 22] : [ 0 0 1 0 0 1 ]
+[ 23] : [ 0 0 1 0 0 2 ]
+[ 24] : [ 0 0 1 0 1 0 ]
+[ 25] : [ 0 0 1 0 1 1 ]
+[ 26] : [ 0 0 1 0 2 0 ]
+[ 27] : [ 0 0 1 1 0 0 ]
+[ 28] : [ 0 0 1 1 0 1 ]
+[ 29] : [ 0 0 1 1 1 0 ]
+[ 30] : [ 0 0 1 2 0 0 ]
+[ 31] : [ 0 0 2 0 0 0 ]
+[ 32] : [ 0 0 2 0 0 1 ]
+[ 33] : [ 0 0 2 0 1 0 ]
+[ 34] : [ 0 0 2 1 0 0 ]
+[ 35] : [ 0 0 3 0 0 0 ]
+[ 36] : [ 0 1 0 0 0 0 ]
+[ 37] : [ 0 1 0 0 0 1 ]
+[ 38] : [ 0 1 0 0 0 2 ]
+[ 39] : [ 0 1 0 0 1 0 ]
+[ 40] : [ 0 1 0 0 1 1 ]
+[ 41] : [ 0 1 0 0 2 0 ]
+[ 42] : [ 0 1 0 1 0 0 ]
+[ 43] : [ 0 1 0 1 0 1 ]
+[ 44] : [ 0 1 0 1 1 0 ]
+[ 45] : [ 0 1 0 2 0 0 ]
+[ 46] : [ 0 1 1 0 0 0 ]
+[ 47] : [ 0 1 1 0 0 1 ]
+[ 48] : [ 0 1 1 0 1 0 ]
+[ 49] : [ 0 1 1 1 0 0 ]
+[ 50] : [ 0 1 2 0 0 0 ]
+[ 51] : [ 0 2 0 0 0 0 ]
+[ 52] : [ 0 2 0 0 0 1 ]
+[ 53] : [ 0 2 0 0 1 0 ]
+[ 54] : [ 0 2 0 1 0 0 ]
+[ 55] : [ 0 2 1 0 0 0 ]
+[ 56] : [ 0 3 0 0 0 0 ]
+[ 57] : [ 1 0 0 0 0 0 ]
+[ 58] : [ 1 0 0 0 0 1 ]
+[ 59] : [ 1 0 0 0 0 2 ]
+[ 60] : [ 1 0 0 0 1 0 ]
+[ 61] : [ 1 0 0 0 1 1 ]
+[ 62] : [ 1 0 0 0 2 0 ]
+[ 63] : [ 1 0 0 1 0 0 ]
+[ 64] : [ 1 0 0 1 0 1 ]
+[ 65] : [ 1 0 0 1 1 0 ]
+[ 66] : [ 1 0 0 2 0 0 ]
+[ 67] : [ 1 0 1 0 0 0 ]
+[ 68] : [ 1 0 1 0 0 1 ]
+[ 69] : [ 1 0 1 0 1 0 ]
+[ 70] : [ 1 0 1 1 0 0 ]
+[ 71] : [ 1 0 2 0 0 0 ]
+[ 72] : [ 1 1 0 0 0 0 ]
+[ 73] : [ 1 1 0 0 0 1 ]
+[ 74] : [ 1 1 0 0 1 0 ]
+[ 75] : [ 1 1 0 1 0 0 ]
+[ 76] : [ 1 1 1 0 0 0 ]
+[ 77] : [ 1 2 0 0 0 0 ]
+[ 78] : [ 2 0 0 0 0 0 ]
+[ 79] : [ 2 0 0 0 0 1 ]
+[ 80] : [ 2 0 0 0 1 0 ]
+[ 81] : [ 2 0 0 1 0 0 ]
+[ 82] : [ 2 0 1 0 0 0 ]
+[ 83] : [ 2 1 0 0 0 0 ]
+[ 84] : [ 3 0 0 0 0 0 ]
+
+
+Calculating target state 1:
+----------------------------
+Target = [ 0 0 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.46902E+03 (0.27913 sec)
+Iteration 2   ... max diff = 1.17094E+01 (0.27869 sec)
+Iteration 3   ... max diff = 4.67595E-02 (0.28203 sec)
+Iteration 4   ... max diff = 1.78985E-03 (0.27755 sec)
+Iteration 5   ... max diff = 8.14986E-05 (0.27946 sec)
+Iteration 6   ... max diff = 3.76800E-06 (0.27822 sec)
+Iteration 7   ... max diff = 1.74754E-07 (0.27974 sec)
+VSCF converged after 7 iterations (1.95497 sec).
+Mode fundamentals =    [ 20.346 22.335 653.182 652.462 1348.844 2309.694 ]
+Total VSCF energy =      2472.291 (from mean single mode energies)
+Total VSCF energy =      2472.291 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET000.dat"
+
+
+Calculating target state 2:
+----------------------------
+Target = [ 0 0 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.80817E+03 (0.27875 sec)
+Iteration 2   ... max diff = 6.30866E+01 (0.27788 sec)
+Iteration 3   ... max diff = 1.02941E-01 (0.27785 sec)
+Iteration 4   ... max diff = 1.31074E-03 (0.27712 sec)
+Iteration 5   ... max diff = 5.69978E-05 (0.28031 sec)
+Iteration 6   ... max diff = 2.65078E-06 (0.27756 sec)
+Iteration 7   ... max diff = 1.23849E-07 (0.27798 sec)
+VSCF converged after 7 iterations (1.94773 sec).
+Mode fundamentals =    [ 20.226 22.318 641.679 640.963 1344.812 2265.717 ]
+Total VSCF energy =      4760.011 (from mean single mode energies)
+Total VSCF energy =      4760.011 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET001.dat"
+
+
+Calculating target state 3:
+----------------------------
+Target = [ 0 0 0 0 0 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.16603E+03 (0.27794 sec)
+Iteration 2   ... max diff = 1.57937E+02 (0.27824 sec)
+Iteration 3   ... max diff = 4.04220E-01 (0.27739 sec)
+Iteration 4   ... max diff = 1.54015E-03 (0.27905 sec)
+Iteration 5   ... max diff = 3.22627E-05 (0.27969 sec)
+Iteration 6   ... max diff = 1.41285E-06 (0.27747 sec)
+Iteration 7   ... max diff = 6.61430E-08 (0.27791 sec)
+VSCF converged after 7 iterations (1.94786 sec).
+Mode fundamentals =    [ 20.107 22.300 630.200 629.486 1340.741 2221.699 ]
+Total VSCF energy =      7022.719 (from mean single mode energies)
+Total VSCF energy =      7022.719 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET002.dat"
+
+
+Calculating target state 4:
+----------------------------
+Target = [ 0 0 0 0 0 3 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 9.54240E+03 (0.27848 sec)
+Iteration 2   ... max diff = 2.95734E+02 (0.28262 sec)
+Iteration 3   ... max diff = 1.26235E+00 (0.27809 sec)
+Iteration 4   ... max diff = 5.54273E-03 (0.27792 sec)
+Iteration 5   ... max diff = 3.12673E-05 (0.27788 sec)
+Iteration 6   ... max diff = 4.53218E-07 (0.27783 sec)
+VSCF converged after 6 iterations (1.67303 sec).
+Mode fundamentals =    [ 19.990 22.280 618.744 618.029 1336.629 2177.631 ]
+Total VSCF energy =      9260.428 (from mean single mode energies)
+Total VSCF energy =      9260.428 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET003.dat"
+
+
+Calculating target state 5:
+----------------------------
+Target = [ 0 0 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.81786E+03 (0.27851 sec)
+Iteration 2   ... max diff = 1.17406E+01 (0.27760 sec)
+Iteration 3   ... max diff = 4.58823E-02 (0.27926 sec)
+Iteration 4   ... max diff = 1.73906E-03 (0.27838 sec)
+Iteration 5   ... max diff = 7.90248E-05 (0.27874 sec)
+Iteration 6   ... max diff = 3.64602E-06 (0.27801 sec)
+Iteration 7   ... max diff = 1.68735E-07 (0.28010 sec)
+VSCF converged after 7 iterations (1.95077 sec).
+Mode fundamentals =    [ 20.299 22.324 657.122 656.397 1348.786 2305.694 ]
+Total VSCF energy =      3821.106 (from mean single mode energies)
+Total VSCF energy =      3821.106 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET004.dat"
+
+
+Calculating target state 6:
+----------------------------
+Target = [ 0 0 0 0 1 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.15301E+03 (0.27861 sec)
+Iteration 2   ... max diff = 6.31400E+01 (0.27822 sec)
+Iteration 3   ... max diff = 1.06778E-01 (0.27794 sec)
+Iteration 4   ... max diff = 1.26326E-03 (0.28168 sec)
+Iteration 5   ... max diff = 5.43602E-05 (0.27736 sec)
+Iteration 6   ... max diff = 2.52153E-06 (0.27804 sec)
+Iteration 7   ... max diff = 1.17533E-07 (0.27840 sec)
+VSCF converged after 7 iterations (1.95055 sec).
+Mode fundamentals =    [ 20.181 22.308 645.680 644.959 1344.745 2261.644 ]
+Total VSCF energy =      6104.789 (from mean single mode energies)
+Total VSCF energy =      6104.789 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET005.dat"
+
+
+Calculating target state 7:
+----------------------------
+Target = [ 0 0 0 0 1 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 8.50689E+03 (0.27855 sec)
+Iteration 2   ... max diff = 1.58071E+02 (0.27793 sec)
+Iteration 3   ... max diff = 4.25023E-01 (0.27672 sec)
+Iteration 4   ... max diff = 1.55509E-03 (0.27745 sec)
+Iteration 5   ... max diff = 3.00287E-05 (0.27836 sec)
+Iteration 6   ... max diff = 1.29713E-06 (0.27785 sec)
+Iteration 7   ... max diff = 6.05160E-08 (0.27684 sec)
+VSCF converged after 7 iterations (1.94386 sec).
+Mode fundamentals =    [ 20.063 22.290 634.264 633.544 1340.664 2217.553 ]
+Total VSCF energy =      8363.422 (from mean single mode energies)
+Total VSCF energy =      8363.422 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET006.dat"
+
+
+Calculating target state 8:
+----------------------------
+Target = [ 0 0 0 0 2 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.16107E+03 (0.27862 sec)
+Iteration 2   ... max diff = 1.18291E+01 (0.27878 sec)
+Iteration 3   ... max diff = 4.50609E-02 (0.27842 sec)
+Iteration 4   ... max diff = 1.68932E-03 (0.27948 sec)
+Iteration 5   ... max diff = 7.66076E-05 (0.27988 sec)
+Iteration 6   ... max diff = 3.52722E-06 (0.27902 sec)
+Iteration 7   ... max diff = 1.62898E-07 (0.27859 sec)
+VSCF converged after 7 iterations (1.95301 sec).
+Mode fundamentals =    [ 20.251 22.314 660.954 660.225 1348.730 2301.669 ]
+Total VSCF energy =      5164.228 (from mean single mode energies)
+Total VSCF energy =      5164.228 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET007.dat"
+
+
+Calculating target state 9:
+----------------------------
+Target = [ 0 0 0 0 2 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.49219E+03 (0.28218 sec)
+Iteration 2   ... max diff = 6.32600E+01 (0.27819 sec)
+Iteration 3   ... max diff = 1.11002E-01 (0.27850 sec)
+Iteration 4   ... max diff = 1.21780E-03 (0.27878 sec)
+Iteration 5   ... max diff = 5.18096E-05 (0.27769 sec)
+Iteration 6   ... max diff = 2.39695E-06 (0.27813 sec)
+Iteration 7   ... max diff = 1.11445E-07 (0.27887 sec)
+VSCF converged after 7 iterations (1.95252 sec).
+Mode fundamentals =    [ 20.135 22.298 649.571 648.845 1344.680 2257.546 ]
+Total VSCF energy =      7443.849 (from mean single mode energies)
+Total VSCF energy =      7443.849 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET008.dat"
+
+
+Calculating target state 10:
+----------------------------
+Target = [ 0 0 0 0 3 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.49864E+03 (0.27775 sec)
+Iteration 2   ... max diff = 1.19723E+01 (0.27765 sec)
+Iteration 3   ... max diff = 4.42965E-02 (0.27745 sec)
+Iteration 4   ... max diff = 1.64062E-03 (0.27771 sec)
+Iteration 5   ... max diff = 7.42468E-05 (0.27777 sec)
+Iteration 6   ... max diff = 3.41156E-06 (0.27763 sec)
+Iteration 7   ... max diff = 1.57224E-07 (0.27820 sec)
+VSCF converged after 7 iterations (1.94441 sec).
+Mode fundamentals =    [ 20.204 22.303 664.681 663.947 1348.675 2297.619 ]
+Total VSCF energy =      6501.656 (from mean single mode energies)
+Total VSCF energy =      6501.656 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET009.dat"
+
+
+Calculating target state 11:
+----------------------------
+Target = [ 0 0 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.12681E+03 (0.27797 sec)
+Iteration 2   ... max diff = 1.77238E+01 (0.27833 sec)
+Iteration 3   ... max diff = 5.21201E-02 (0.27791 sec)
+Iteration 4   ... max diff = 1.78805E-03 (0.27888 sec)
+Iteration 5   ... max diff = 8.06083E-05 (0.27939 sec)
+Iteration 6   ... max diff = 3.69005E-06 (0.27846 sec)
+Iteration 7   ... max diff = 1.69445E-07 (0.27889 sec)
+VSCF converged after 7 iterations (1.94997 sec).
+Mode fundamentals =    [ 20.345 22.265 655.504 651.083 1352.778 2298.182 ]
+Total VSCF energy =      3124.064 (from mean single mode energies)
+Total VSCF energy =      3124.064 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET010.dat"
+
+
+Calculating target state 12:
+----------------------------
+Target = [ 0 0 0 1 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.46208E+03 (0.27778 sec)
+Iteration 2   ... max diff = 7.66887E+01 (0.27823 sec)
+Iteration 3   ... max diff = 1.26811E-01 (0.27788 sec)
+Iteration 4   ... max diff = 1.31767E-03 (0.27798 sec)
+Iteration 5   ... max diff = 5.59188E-05 (0.27769 sec)
+Iteration 6   ... max diff = 2.57086E-06 (0.28128 sec)
+Iteration 7   ... max diff = 1.18759E-07 (0.27857 sec)
+VSCF converged after 7 iterations (1.94958 sec).
+Mode fundamentals =    [ 20.233 22.249 643.998 639.597 1348.808 2254.244 ]
+Total VSCF energy =      5400.291 (from mean single mode energies)
+Total VSCF energy =      5400.291 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET011.dat"
+
+
+Calculating target state 13:
+----------------------------
+Target = [ 0 0 0 1 0 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.81601E+03 (0.27766 sec)
+Iteration 2   ... max diff = 1.79046E+02 (0.27731 sec)
+Iteration 3   ... max diff = 4.67588E-01 (0.27810 sec)
+Iteration 4   ... max diff = 1.65900E-03 (0.27792 sec)
+Iteration 5   ... max diff = 3.15828E-05 (0.27816 sec)
+Iteration 6   ... max diff = 1.35055E-06 (0.27777 sec)
+Iteration 7   ... max diff = 6.23959E-08 (0.27797 sec)
+VSCF converged after 7 iterations (1.94506 sec).
+Mode fundamentals =    [ 20.122 22.232 632.514 628.133 1344.800 2210.263 ]
+Total VSCF energy =      7651.529 (from mean single mode energies)
+Total VSCF energy =      7651.529 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET012.dat"
+
+
+Calculating target state 14:
+----------------------------
+Target = [ 0 0 0 1 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.47968E+03 (0.27739 sec)
+Iteration 2   ... max diff = 1.78745E+01 (0.27759 sec)
+Iteration 3   ... max diff = 5.14534E-02 (0.27772 sec)
+Iteration 4   ... max diff = 1.73680E-03 (0.27781 sec)
+Iteration 5   ... max diff = 7.80940E-05 (0.27824 sec)
+Iteration 6   ... max diff = 3.56561E-06 (0.27975 sec)
+Iteration 7   ... max diff = 1.63289E-07 (0.27843 sec)
+VSCF converged after 7 iterations (1.94716 sec).
+Mode fundamentals =    [ 20.300 22.255 659.335 654.966 1352.670 2294.242 ]
+Total VSCF energy =      4476.788 (from mean single mode energies)
+Total VSCF energy =      4476.788 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET013.dat"
+
+
+Calculating target state 15:
+----------------------------
+Target = [ 0 0 0 1 1 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.81095E+03 (0.27796 sec)
+Iteration 2   ... max diff = 7.68076E+01 (0.27735 sec)
+Iteration 3   ... max diff = 1.31017E-01 (0.27795 sec)
+Iteration 4   ... max diff = 1.27108E-03 (0.27736 sec)
+Iteration 5   ... max diff = 5.32776E-05 (0.27748 sec)
+Iteration 6   ... max diff = 2.44162E-06 (0.27886 sec)
+Iteration 7   ... max diff = 1.12455E-07 (0.27779 sec)
+VSCF converged after 7 iterations (1.94496 sec).
+Mode fundamentals =    [ 20.189 22.239 647.888 643.540 1348.689 2250.232 ]
+Total VSCF energy =      6749.039 (from mean single mode energies)
+Total VSCF energy =      6749.039 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET014.dat"
+
+
+Calculating target state 16:
+----------------------------
+Target = [ 0 0 0 1 2 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.82686E+03 (0.27792 sec)
+Iteration 2   ... max diff = 1.81318E+01 (0.27740 sec)
+Iteration 3   ... max diff = 5.08359E-02 (0.27861 sec)
+Iteration 4   ... max diff = 1.68661E-03 (0.27829 sec)
+Iteration 5   ... max diff = 7.56400E-05 (0.27844 sec)
+Iteration 6   ... max diff = 3.44466E-06 (0.27869 sec)
+Iteration 7   ... max diff = 1.57331E-07 (0.27769 sec)
+VSCF converged after 7 iterations (1.94721 sec).
+Mode fundamentals =    [ 20.254 22.245 663.062 658.742 1352.564 2290.274 ]
+Total VSCF energy =      5823.711 (from mean single mode energies)
+Total VSCF energy =      5823.711 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET015.dat"
+
+
+Calculating target state 17:
+----------------------------
+Target = [ 0 0 0 2 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.78618E+03 (0.27819 sec)
+Iteration 2   ... max diff = 2.51450E+01 (0.27939 sec)
+Iteration 3   ... max diff = 6.04364E-02 (0.28222 sec)
+Iteration 4   ... max diff = 1.78032E-03 (0.27939 sec)
+Iteration 5   ... max diff = 7.93674E-05 (0.27812 sec)
+Iteration 6   ... max diff = 3.59333E-06 (0.27830 sec)
+Iteration 7   ... max diff = 1.63180E-07 (0.27912 sec)
+VSCF converged after 7 iterations (1.95497 sec).
+Mode fundamentals =    [ 20.341 22.193 657.826 649.701 1356.585 2286.684 ]
+Total VSCF energy =      3776.002 (from mean single mode energies)
+Total VSCF energy =      3776.002 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET016.dat"
+
+
+Calculating target state 18:
+----------------------------
+Target = [ 0 0 0 2 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.11759E+03 (0.27948 sec)
+Iteration 2   ... max diff = 9.17081E+01 (0.27849 sec)
+Iteration 3   ... max diff = 1.57007E-01 (0.27818 sec)
+Iteration 4   ... max diff = 1.32452E-03 (0.27947 sec)
+Iteration 5   ... max diff = 5.46385E-05 (0.27822 sec)
+Iteration 6   ... max diff = 2.48069E-06 (0.27817 sec)
+Iteration 7   ... max diff = 1.13158E-07 (0.27886 sec)
+VSCF converged after 7 iterations (1.95110 sec).
+Mode fundamentals =    [ 20.236 22.178 646.315 638.227 1352.675 2242.785 ]
+Total VSCF energy =      6040.751 (from mean single mode energies)
+Total VSCF energy =      6040.751 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET017.dat"
+
+
+Calculating target state 19:
+----------------------------
+Target = [ 0 0 0 2 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.14300E+03 (0.27781 sec)
+Iteration 2   ... max diff = 2.54629E+01 (0.27883 sec)
+Iteration 3   ... max diff = 6.02821E-02 (0.27961 sec)
+Iteration 4   ... max diff = 1.72926E-03 (0.27869 sec)
+Iteration 5   ... max diff = 7.68487E-05 (0.28038 sec)
+Iteration 6   ... max diff = 3.46852E-06 (0.27785 sec)
+Iteration 7   ... max diff = 1.57014E-07 (0.27825 sec)
+VSCF converged after 7 iterations (1.95164 sec).
+Mode fundamentals =    [ 20.297 22.184 661.550 653.532 1356.430 2282.802 ]
+Total VSCF energy =      5132.509 (from mean single mode energies)
+Total VSCF energy =      5132.509 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET018.dat"
+
+
+Calculating target state 20:
+----------------------------
+Target = [ 0 0 0 3 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.44714E+03 (0.27834 sec)
+Iteration 2   ... max diff = 3.39869E+01 (0.27826 sec)
+Iteration 3   ... max diff = 7.25325E-02 (0.27844 sec)
+Iteration 4   ... max diff = 1.76730E-03 (0.27838 sec)
+Iteration 5   ... max diff = 7.78188E-05 (0.27821 sec)
+Iteration 6   ... max diff = 3.48078E-06 (0.27762 sec)
+Iteration 7   ... max diff = 1.56159E-07 (0.27849 sec)
+VSCF converged after 7 iterations (1.94790 sec).
+Mode fundamentals =    [ 20.335 22.120 660.146 648.314 1360.269 2275.202 ]
+Total VSCF energy =      4428.108 (from mean single mode energies)
+Total VSCF energy =      4428.108 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET019.dat"
+
+
+Calculating target state 21:
+----------------------------
+Target = [ 0 0 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.12744E+03 (0.27883 sec)
+Iteration 2   ... max diff = 1.78468E+01 (0.27740 sec)
+Iteration 3   ... max diff = 4.91791E-02 (0.27791 sec)
+Iteration 4   ... max diff = 1.37450E-03 (0.27797 sec)
+Iteration 5   ... max diff = 4.84419E-05 (0.27827 sec)
+Iteration 6   ... max diff = 1.72786E-06 (0.27808 sec)
+Iteration 7   ... max diff = 6.17688E-08 (0.27840 sec)
+VSCF converged after 7 iterations (1.94705 sec).
+Mode fundamentals =    [ 22.985 22.336 651.418 654.774 1352.782 2298.179 ]
+Total VSCF energy =      3124.575 (from mean single mode energies)
+Total VSCF energy =      3124.575 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET020.dat"
+
+
+Calculating target state 22:
+----------------------------
+Target = [ 0 0 1 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.46286E+03 (0.27840 sec)
+Iteration 2   ... max diff = 7.69472E+01 (0.27968 sec)
+Iteration 3   ... max diff = 1.38948E-01 (0.27968 sec)
+Iteration 4   ... max diff = 1.57027E-03 (0.27883 sec)
+Iteration 5   ... max diff = 5.30274E-05 (0.27952 sec)
+Iteration 6   ... max diff = 1.89706E-06 (0.27962 sec)
+Iteration 7   ... max diff = 6.80893E-08 (0.27838 sec)
+VSCF converged after 7 iterations (1.95434 sec).
+Mode fundamentals =    [ 22.848 22.315 639.930 643.271 1348.812 2254.242 ]
+Total VSCF energy =      5400.799 (from mean single mode energies)
+Total VSCF energy =      5400.799 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET021.dat"
+
+
+Calculating target state 23:
+----------------------------
+Target = [ 0 0 1 0 0 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.81694E+03 (0.27976 sec)
+Iteration 2   ... max diff = 1.79435E+02 (0.28120 sec)
+Iteration 3   ... max diff = 4.95874E-01 (0.27974 sec)
+Iteration 4   ... max diff = 2.52785E-03 (0.27806 sec)
+Iteration 5   ... max diff = 5.75135E-05 (0.27779 sec)
+Iteration 6   ... max diff = 1.99546E-06 (0.27934 sec)
+Iteration 7   ... max diff = 7.16509E-08 (0.27913 sec)
+VSCF converged after 7 iterations (1.95526 sec).
+Mode fundamentals =    [ 22.716 22.294 628.466 631.790 1344.804 2210.262 ]
+Total VSCF energy =      7652.036 (from mean single mode energies)
+Total VSCF energy =      7652.036 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET022.dat"
+
+
+Calculating target state 24:
+----------------------------
+Target = [ 0 0 1 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.48016E+03 (0.27850 sec)
+Iteration 2   ... max diff = 1.78382E+01 (0.27858 sec)
+Iteration 3   ... max diff = 4.57538E-02 (0.27821 sec)
+Iteration 4   ... max diff = 1.25149E-03 (0.27781 sec)
+Iteration 5   ... max diff = 4.40452E-05 (0.27908 sec)
+Iteration 6   ... max diff = 1.56824E-06 (0.27875 sec)
+Iteration 7   ... max diff = 5.59648E-08 (0.27894 sec)
+VSCF converged after 7 iterations (1.95004 sec).
+Mode fundamentals =    [ 22.945 22.323 655.303 658.600 1352.673 2294.239 ]
+Total VSCF energy =      4477.302 (from mean single mode energies)
+Total VSCF energy =      4477.302 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET023.dat"
+
+
+Calculating target state 25:
+----------------------------
+Target = [ 0 0 1 0 1 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.81157E+03 (0.27809 sec)
+Iteration 2   ... max diff = 7.69087E+01 (0.27798 sec)
+Iteration 3   ... max diff = 1.39988E-01 (0.27881 sec)
+Iteration 4   ... max diff = 1.43834E-03 (0.27898 sec)
+Iteration 5   ... max diff = 4.79960E-05 (0.27816 sec)
+Iteration 6   ... max diff = 1.71298E-06 (0.28039 sec)
+Iteration 7   ... max diff = 6.13318E-08 (0.27802 sec)
+VSCF converged after 7 iterations (1.95058 sec).
+Mode fundamentals =    [ 22.811 22.303 643.876 647.157 1348.693 2250.230 ]
+Total VSCF energy =      6749.551 (from mean single mode energies)
+Total VSCF energy =      6749.551 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET024.dat"
+
+
+Calculating target state 26:
+----------------------------
+Target = [ 0 0 1 0 2 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.82718E+03 (0.27795 sec)
+Iteration 2   ... max diff = 1.79355E+01 (0.27931 sec)
+Iteration 3   ... max diff = 4.24538E-02 (0.27868 sec)
+Iteration 4   ... max diff = 1.13127E-03 (0.27918 sec)
+Iteration 5   ... max diff = 3.97586E-05 (0.27800 sec)
+Iteration 6   ... max diff = 1.41318E-06 (0.27846 sec)
+Iteration 7   ... max diff = 5.03323E-08 (0.27984 sec)
+VSCF converged after 7 iterations (1.95165 sec).
+Mode fundamentals =    [ 22.905 22.311 659.083 662.323 1352.567 2290.272 ]
+Total VSCF energy =      5824.229 (from mean single mode energies)
+Total VSCF energy =      5824.229 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET025.dat"
+
+
+Calculating target state 27:
+----------------------------
+Target = [ 0 0 1 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.78906E+03 (0.27882 sec)
+Iteration 2   ... max diff = 2.53842E+01 (0.27848 sec)
+Iteration 3   ... max diff = 6.06589E-02 (0.27844 sec)
+Iteration 4   ... max diff = 1.46492E-03 (0.27905 sec)
+Iteration 5   ... max diff = 5.06058E-05 (0.27913 sec)
+Iteration 6   ... max diff = 1.76986E-06 (0.27957 sec)
+Iteration 7   ... max diff = 6.20425E-08 (0.27877 sec)
+VSCF converged after 7 iterations (1.95241 sec).
+Mode fundamentals =    [ 22.982 21.985 653.696 653.370 1356.607 2286.664 ]
+Total VSCF energy =      3778.646 (from mean single mode energies)
+Total VSCF energy =      3778.646 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET026.dat"
+
+
+Calculating target state 28:
+----------------------------
+Target = [ 0 0 1 1 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.12059E+03 (0.27863 sec)
+Iteration 2   ... max diff = 9.20710E+01 (0.27893 sec)
+Iteration 3   ... max diff = 1.73845E-01 (0.28008 sec)
+Iteration 4   ... max diff = 1.68634E-03 (0.27990 sec)
+Iteration 5   ... max diff = 5.53600E-05 (0.27838 sec)
+Iteration 6   ... max diff = 1.94157E-06 (0.27971 sec)
+Iteration 7   ... max diff = 6.82940E-08 (0.27898 sec)
+VSCF converged after 7 iterations (1.95476 sec).
+Mode fundamentals =    [ 22.847 21.968 642.205 641.880 1352.697 2242.764 ]
+Total VSCF energy =      6043.375 (from mean single mode energies)
+Total VSCF energy =      6043.375 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET027.dat"
+
+
+Calculating target state 29:
+----------------------------
+Target = [ 0 0 1 1 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.14577E+03 (0.27863 sec)
+Iteration 2   ... max diff = 2.55702E+01 (0.27859 sec)
+Iteration 3   ... max diff = 5.77744E-02 (0.27818 sec)
+Iteration 4   ... max diff = 1.34799E-03 (0.27811 sec)
+Iteration 5   ... max diff = 4.64896E-05 (0.27729 sec)
+Iteration 6   ... max diff = 1.62272E-06 (0.27891 sec)
+Iteration 7   ... max diff = 5.67597E-08 (0.27844 sec)
+VSCF converged after 7 iterations (1.94831 sec).
+Mode fundamentals =    [ 22.942 21.975 657.475 657.145 1356.450 2282.783 ]
+Total VSCF energy =      5135.175 (from mean single mode energies)
+Total VSCF energy =      5135.175 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET028.dat"
+
+
+Calculating target state 30:
+----------------------------
+Target = [ 0 0 1 2 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.45228E+03 (0.27795 sec)
+Iteration 2   ... max diff = 3.43556E+01 (0.27856 sec)
+Iteration 3   ... max diff = 7.62429E-02 (0.27965 sec)
+Iteration 4   ... max diff = 1.55088E-03 (0.27797 sec)
+Iteration 5   ... max diff = 5.24560E-05 (0.27899 sec)
+Iteration 6   ... max diff = 1.79693E-06 (0.27794 sec)
+Iteration 7   ... max diff = 6.16837E-08 (0.27966 sec)
+VSCF converged after 7 iterations (1.95100 sec).
+Mode fundamentals =    [ 22.977 21.642 655.963 651.962 1360.307 2275.163 ]
+Total VSCF energy =      4432.877 (from mean single mode energies)
+Total VSCF energy =      4432.877 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET029.dat"
+
+
+Calculating target state 31:
+----------------------------
+Target = [ 0 0 2 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.78726E+03 (0.28084 sec)
+Iteration 2   ... max diff = 2.55887E+01 (0.27797 sec)
+Iteration 3   ... max diff = 5.99996E-02 (0.27921 sec)
+Iteration 4   ... max diff = 1.47883E-03 (0.27812 sec)
+Iteration 5   ... max diff = 4.90111E-05 (0.27945 sec)
+Iteration 6   ... max diff = 1.64321E-06 (0.27863 sec)
+Iteration 7   ... max diff = 5.52004E-08 (0.27845 sec)
+VSCF converged after 7 iterations (1.95285 sec).
+Mode fundamentals =    [ 24.805 22.337 649.768 657.060 1356.592 2286.680 ]
+Total VSCF energy =      3776.644 (from mean single mode energies)
+Total VSCF energy =      3776.644 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET030.dat"
+
+
+Calculating target state 32:
+----------------------------
+Target = [ 0 0 2 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.11895E+03 (0.27786 sec)
+Iteration 2   ... max diff = 9.24081E+01 (0.27945 sec)
+Iteration 3   ... max diff = 1.82332E-01 (0.27914 sec)
+Iteration 4   ... max diff = 2.20386E-03 (0.27792 sec)
+Iteration 5   ... max diff = 7.08400E-05 (0.27827 sec)
+Iteration 6   ... max diff = 2.37810E-06 (0.27933 sec)
+Iteration 7   ... max diff = 7.99764E-08 (0.27879 sec)
+VSCF converged after 7 iterations (1.95097 sec).
+Mode fundamentals =    [ 24.659 22.314 638.294 645.554 1352.682 2242.783 ]
+Total VSCF energy =      6041.391 (from mean single mode energies)
+Total VSCF energy =      6041.391 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET031.dat"
+
+
+Calculating target state 33:
+----------------------------
+Target = [ 0 0 2 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.14379E+03 (0.27899 sec)
+Iteration 2   ... max diff = 2.56093E+01 (0.27872 sec)
+Iteration 3   ... max diff = 5.46241E-02 (0.27849 sec)
+Iteration 4   ... max diff = 1.29983E-03 (0.27893 sec)
+Iteration 5   ... max diff = 4.30610E-05 (0.27882 sec)
+Iteration 6   ... max diff = 1.44209E-06 (0.27957 sec)
+Iteration 7   ... max diff = 4.83924E-08 (0.27755 sec)
+VSCF converged after 7 iterations (1.95122 sec).
+Mode fundamentals =    [ 24.768 22.323 653.602 660.780 1356.436 2282.799 ]
+Total VSCF energy =      5133.158 (from mean single mode energies)
+Total VSCF energy =      5133.158 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET032.dat"
+
+
+Calculating target state 34:
+----------------------------
+Target = [ 0 0 2 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.45272E+03 (0.27827 sec)
+Iteration 2   ... max diff = 3.46813E+01 (0.27991 sec)
+Iteration 3   ... max diff = 7.81938E-02 (0.27803 sec)
+Iteration 4   ... max diff = 1.65720E-03 (0.27829 sec)
+Iteration 5   ... max diff = 5.37177E-05 (0.27831 sec)
+Iteration 6   ... max diff = 1.76224E-06 (0.27810 sec)
+Iteration 7   ... max diff = 5.79412E-08 (0.27767 sec)
+VSCF converged after 7 iterations (1.94884 sec).
+Mode fundamentals =    [ 24.766 21.707 652.010 655.622 1360.310 2275.162 ]
+Total VSCF energy =      4432.985 (from mean single mode energies)
+Total VSCF energy =      4432.985 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET033.dat"
+
+
+Calculating target state 35:
+----------------------------
+Target = [ 0 0 3 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.44855E+03 (0.27824 sec)
+Iteration 2   ... max diff = 3.49203E+01 (0.27781 sec)
+Iteration 3   ... max diff = 7.66376E-02 (0.27786 sec)
+Iteration 4   ... max diff = 1.76135E-03 (0.27753 sec)
+Iteration 5   ... max diff = 5.86733E-05 (0.27866 sec)
+Iteration 6   ... max diff = 1.97816E-06 (0.27887 sec)
+Iteration 7   ... max diff = 6.68551E-08 (0.27765 sec)
+VSCF converged after 7 iterations (1.94678 sec).
+Mode fundamentals =    [ 26.191 22.364 648.160 659.326 1360.278 2275.197 ]
+Total VSCF energy =      4428.582 (from mean single mode energies)
+Total VSCF energy =      4428.582 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET034.dat"
+
+
+Calculating target state 36:
+----------------------------
+Target = [ 0 1 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.48988E+03 (0.27794 sec)
+Iteration 2   ... max diff = 1.03637E+01 (0.27935 sec)
+Iteration 3   ... max diff = 1.94095E-02 (0.27781 sec)
+Iteration 4   ... max diff = 3.87652E-04 (0.27775 sec)
+Iteration 5   ... max diff = 9.08474E-06 (0.27768 sec)
+Iteration 6   ... max diff = 2.14399E-07 (0.27867 sec)
+VSCF converged after 6 iterations (1.66940 sec).
+Mode fundamentals =    [ 16.492 22.128 653.249 652.394 1348.834 2309.683 ]
+Total VSCF energy =      2494.524 (from mean single mode energies)
+Total VSCF energy =      2494.524 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET035.dat"
+
+
+Calculating target state 37:
+----------------------------
+Target = [ 0 1 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.82802E+03 (0.27820 sec)
+Iteration 2   ... max diff = 6.07355E+01 (0.27811 sec)
+Iteration 3   ... max diff = 8.31828E-02 (0.27820 sec)
+Iteration 4   ... max diff = 5.58403E-04 (0.27817 sec)
+Iteration 5   ... max diff = 1.19030E-05 (0.27888 sec)
+Iteration 6   ... max diff = 2.80649E-07 (0.27901 sec)
+VSCF converged after 6 iterations (1.67072 sec).
+Mode fundamentals =    [ 16.454 22.121 641.739 640.896 1344.803 2265.704 ]
+Total VSCF energy =      4782.231 (from mean single mode energies)
+Total VSCF energy =      4782.231 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET036.dat"
+
+
+Calculating target state 38:
+----------------------------
+Target = [ 0 1 0 0 0 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.18487E+03 (0.27868 sec)
+Iteration 2   ... max diff = 1.54595E+02 (0.27763 sec)
+Iteration 3   ... max diff = 3.81729E-01 (0.27798 sec)
+Iteration 4   ... max diff = 1.49001E-03 (0.27815 sec)
+Iteration 5   ... max diff = 1.79495E-05 (0.27760 sec)
+Iteration 6   ... max diff = 3.88468E-07 (0.27805 sec)
+VSCF converged after 6 iterations (1.66823 sec).
+Mode fundamentals =    [ 16.418 22.113 630.253 629.420 1340.732 2221.684 ]
+Total VSCF energy =      7044.927 (from mean single mode energies)
+Total VSCF energy =      7044.927 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET037.dat"
+
+
+Calculating target state 39:
+----------------------------
+Target = [ 0 1 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.83866E+03 (0.27759 sec)
+Iteration 2   ... max diff = 1.03424E+01 (0.27741 sec)
+Iteration 3   ... max diff = 1.80829E-02 (0.27749 sec)
+Iteration 4   ... max diff = 3.53230E-04 (0.27740 sec)
+Iteration 5   ... max diff = 8.26341E-06 (0.27724 sec)
+Iteration 6   ... max diff = 1.94706E-07 (0.27732 sec)
+VSCF converged after 6 iterations (1.66459 sec).
+Mode fundamentals =    [ 16.491 22.119 657.185 656.329 1348.777 2305.683 ]
+Total VSCF energy =      3843.329 (from mean single mode energies)
+Total VSCF energy =      3843.329 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET038.dat"
+
+
+Calculating target state 40:
+----------------------------
+Target = [ 0 1 0 0 1 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.17280E+03 (0.27749 sec)
+Iteration 2   ... max diff = 6.07394E+01 (0.27927 sec)
+Iteration 3   ... max diff = 8.61803E-02 (0.27784 sec)
+Iteration 4   ... max diff = 5.22400E-04 (0.27778 sec)
+Iteration 5   ... max diff = 1.08964E-05 (0.27790 sec)
+Iteration 6   ... max diff = 2.56200E-07 (0.27843 sec)
+VSCF converged after 6 iterations (1.66886 sec).
+Mode fundamentals =    [ 16.454 22.113 645.736 644.892 1344.736 2261.632 ]
+Total VSCF energy =      6127.001 (from mean single mode energies)
+Total VSCF energy =      6127.001 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET039.dat"
+
+
+Calculating target state 41:
+----------------------------
+Target = [ 0 1 0 0 2 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.18180E+03 (0.27844 sec)
+Iteration 2   ... max diff = 1.03775E+01 (0.27809 sec)
+Iteration 3   ... max diff = 1.68524E-02 (0.27748 sec)
+Iteration 4   ... max diff = 3.20077E-04 (0.27774 sec)
+Iteration 5   ... max diff = 7.47367E-06 (0.27819 sec)
+Iteration 6   ... max diff = 1.75808E-07 (0.27954 sec)
+VSCF converged after 6 iterations (1.66968 sec).
+Mode fundamentals =    [ 16.490 22.110 661.014 660.158 1348.720 2301.659 ]
+Total VSCF energy =      5186.441 (from mean single mode energies)
+Total VSCF energy =      5186.441 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET040.dat"
+
+
+Calculating target state 42:
+----------------------------
+Target = [ 0 1 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.14734E+03 (0.27802 sec)
+Iteration 2   ... max diff = 1.61178E+01 (0.27782 sec)
+Iteration 3   ... max diff = 2.47201E-02 (0.27786 sec)
+Iteration 4   ... max diff = 4.15037E-04 (0.27753 sec)
+Iteration 5   ... max diff = 9.55300E-06 (0.27781 sec)
+Iteration 6   ... max diff = 2.21539E-07 (0.27778 sec)
+VSCF converged after 6 iterations (1.66695 sec).
+Mode fundamentals =    [ 16.578 22.065 655.296 651.018 1352.768 2298.171 ]
+Total VSCF energy =      3146.230 (from mean single mode energies)
+Total VSCF energy =      3146.230 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET041.dat"
+
+
+Calculating target state 43:
+----------------------------
+Target = [ 0 1 0 1 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.48160E+03 (0.27790 sec)
+Iteration 2   ... max diff = 7.40777E+01 (0.27811 sec)
+Iteration 3   ... max diff = 1.05658E-01 (0.27744 sec)
+Iteration 4   ... max diff = 6.21629E-04 (0.27793 sec)
+Iteration 5   ... max diff = 1.28328E-05 (0.27793 sec)
+Iteration 6   ... max diff = 2.96804E-07 (0.27787 sec)
+VSCF converged after 6 iterations (1.66738 sec).
+Mode fundamentals =    [ 16.547 22.059 643.785 639.533 1348.799 2254.232 ]
+Total VSCF energy =      5422.445 (from mean single mode energies)
+Total VSCF energy =      5422.445 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET042.dat"
+
+
+Calculating target state 44:
+----------------------------
+Target = [ 0 1 0 1 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.50015E+03 (0.27736 sec)
+Iteration 2   ... max diff = 1.62157E+01 (0.27767 sec)
+Iteration 3   ... max diff = 2.35745E-02 (0.27760 sec)
+Iteration 4   ... max diff = 3.80834E-04 (0.27746 sec)
+Iteration 5   ... max diff = 8.74441E-06 (0.27771 sec)
+Iteration 6   ... max diff = 2.02350E-07 (0.27771 sec)
+VSCF converged after 6 iterations (1.66564 sec).
+Mode fundamentals =    [ 16.578 22.056 659.125 654.901 1352.660 2294.232 ]
+Total VSCF energy =      4498.944 (from mean single mode energies)
+Total VSCF energy =      4498.944 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET043.dat"
+
+
+Calculating target state 45:
+----------------------------
+Target = [ 0 1 0 2 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.80637E+03 (0.27756 sec)
+Iteration 2   ... max diff = 2.32730E+01 (0.27738 sec)
+Iteration 3   ... max diff = 3.29204E-02 (0.27744 sec)
+Iteration 4   ... max diff = 4.46067E-04 (0.27754 sec)
+Iteration 5   ... max diff = 1.00757E-05 (0.27808 sec)
+Iteration 6   ... max diff = 2.29472E-07 (0.27770 sec)
+VSCF converged after 6 iterations (1.66585 sec).
+Mode fundamentals =    [ 16.664 22.000 657.348 649.638 1356.576 2286.675 ]
+Total VSCF energy =      3798.099 (from mean single mode energies)
+Total VSCF energy =      3798.099 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET044.dat"
+
+
+Calculating target state 46:
+----------------------------
+Target = [ 0 1 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.14836E+03 (0.27769 sec)
+Iteration 2   ... max diff = 1.65185E+01 (0.27858 sec)
+Iteration 3   ... max diff = 2.98556E-02 (0.27808 sec)
+Iteration 4   ... max diff = 6.07305E-04 (0.27792 sec)
+Iteration 5   ... max diff = 1.47005E-05 (0.27896 sec)
+Iteration 6   ... max diff = 3.58461E-07 (0.27782 sec)
+VSCF converged after 6 iterations (1.66926 sec).
+Mode fundamentals =    [ 19.119 22.195 651.439 654.422 1352.769 2298.162 ]
+Total VSCF energy =      3146.841 (from mean single mode energies)
+Total VSCF energy =      3146.841 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET045.dat"
+
+
+Calculating target state 47:
+----------------------------
+Target = [ 0 1 1 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.48278E+03 (0.27852 sec)
+Iteration 2   ... max diff = 7.46368E+01 (0.27792 sec)
+Iteration 3   ... max diff = 1.20940E-01 (0.27851 sec)
+Iteration 4   ... max diff = 1.24227E-03 (0.27917 sec)
+Iteration 5   ... max diff = 2.89038E-05 (0.27808 sec)
+Iteration 6   ... max diff = 7.03134E-07 (0.27884 sec)
+VSCF converged after 6 iterations (1.67117 sec).
+Mode fundamentals =    [ 19.058 22.181 639.947 642.923 1348.800 2254.224 ]
+Total VSCF energy =      5423.048 (from mean single mode energies)
+Total VSCF energy =      5423.048 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET046.dat"
+
+
+Calculating target state 48:
+----------------------------
+Target = [ 0 1 1 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.50100E+03 (0.27926 sec)
+Iteration 2   ... max diff = 1.64472E+01 (0.27804 sec)
+Iteration 3   ... max diff = 2.57946E-02 (0.27951 sec)
+Iteration 4   ... max diff = 5.09704E-04 (0.27838 sec)
+Iteration 5   ... max diff = 1.23399E-05 (0.27823 sec)
+Iteration 6   ... max diff = 3.00780E-07 (0.27809 sec)
+VSCF converged after 6 iterations (1.67171 sec).
+Mode fundamentals =    [ 19.121 22.183 655.322 658.250 1352.661 2294.223 ]
+Total VSCF energy =      4499.556 (from mean single mode energies)
+Total VSCF energy =      4499.556 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET047.dat"
+
+
+Calculating target state 49:
+----------------------------
+Target = [ 0 1 1 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.80930E+03 (0.27774 sec)
+Iteration 2   ... max diff = 2.37241E+01 (0.27727 sec)
+Iteration 3   ... max diff = 3.92375E-02 (0.27748 sec)
+Iteration 4   ... max diff = 6.83453E-04 (0.27758 sec)
+Iteration 5   ... max diff = 1.60432E-05 (0.27861 sec)
+Iteration 6   ... max diff = 3.79429E-07 (0.27814 sec)
+VSCF converged after 6 iterations (1.66694 sec).
+Mode fundamentals =    [ 19.318 21.855 653.437 653.031 1356.596 2286.651 ]
+Total VSCF energy =      3800.567 (from mean single mode energies)
+Total VSCF energy =      3800.567 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET048.dat"
+
+
+Calculating target state 50:
+----------------------------
+Target = [ 0 1 2 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.80813E+03 (0.27860 sec)
+Iteration 2   ... max diff = 2.41843E+01 (0.27798 sec)
+Iteration 3   ... max diff = 4.46868E-02 (0.27777 sec)
+Iteration 4   ... max diff = 9.78910E-04 (0.27813 sec)
+Iteration 5   ... max diff = 2.59363E-05 (0.27770 sec)
+Iteration 6   ... max diff = 6.93221E-07 (0.27775 sec)
+VSCF converged after 6 iterations (1.66809 sec).
+Mode fundamentals =    [ 20.873 22.238 649.803 656.421 1356.577 2286.660 ]
+Total VSCF energy =      3798.933 (from mean single mode energies)
+Total VSCF energy =      3798.933 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET049.dat"
+
+
+Calculating target state 51:
+----------------------------
+Target = [ 0 2 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.51413E+03 (0.27844 sec)
+Iteration 2   ... max diff = 1.01295E+01 (0.27994 sec)
+Iteration 3   ... max diff = 9.64705E-03 (0.27754 sec)
+Iteration 4   ... max diff = 1.03645E-04 (0.27780 sec)
+Iteration 5   ... max diff = 1.26955E-06 (0.27810 sec)
+Iteration 6   ... max diff = 1.55433E-08 (0.27737 sec)
+VSCF converged after 6 iterations (1.66944 sec).
+Mode fundamentals =    [ 21.075 22.288 652.921 652.499 1348.860 2309.749 ]
+Total VSCF energy =      2519.022 (from mean single mode energies)
+Total VSCF energy =      2519.022 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET050.dat"
+
+
+Calculating target state 52:
+----------------------------
+Target = [ 0 2 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.85230E+03 (0.27773 sec)
+Iteration 2   ... max diff = 6.04808E+01 (0.27792 sec)
+Iteration 3   ... max diff = 6.05338E-02 (0.27758 sec)
+Iteration 4   ... max diff = 2.42770E-04 (0.27757 sec)
+Iteration 5   ... max diff = 2.70150E-06 (0.27747 sec)
+Iteration 6   ... max diff = 3.31365E-08 (0.27737 sec)
+VSCF converged after 6 iterations (1.66578 sec).
+Mode fundamentals =    [ 21.058 22.276 641.414 641.001 1344.829 2265.771 ]
+Total VSCF energy =      4806.796 (from mean single mode energies)
+Total VSCF energy =      4806.796 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET051.dat"
+
+
+Calculating target state 53:
+----------------------------
+Target = [ 0 2 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.86296E+03 (0.27753 sec)
+Iteration 2   ... max diff = 1.01247E+01 (0.27796 sec)
+Iteration 3   ... max diff = 9.13023E-03 (0.27779 sec)
+Iteration 4   ... max diff = 9.42873E-05 (0.27846 sec)
+Iteration 5   ... max diff = 1.15488E-06 (0.27879 sec)
+Iteration 6   ... max diff = 1.41135E-08 (0.27833 sec)
+VSCF converged after 6 iterations (1.66900 sec).
+Mode fundamentals =    [ 21.068 22.275 656.857 656.434 1348.803 2305.749 ]
+Total VSCF energy =      3867.853 (from mean single mode energies)
+Total VSCF energy =      3867.853 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET052.dat"
+
+
+Calculating target state 54:
+----------------------------
+Target = [ 0 2 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.17170E+03 (0.27872 sec)
+Iteration 2   ... max diff = 1.58852E+01 (0.27888 sec)
+Iteration 3   ... max diff = 1.37463E-02 (0.27785 sec)
+Iteration 4   ... max diff = 1.25419E-04 (0.27850 sec)
+Iteration 5   ... max diff = 1.52719E-06 (0.27768 sec)
+Iteration 6   ... max diff = 1.85792E-08 (0.27786 sec)
+VSCF converged after 6 iterations (1.66962 sec).
+Mode fundamentals =    [ 21.167 22.218 655.019 651.122 1352.794 2298.238 ]
+Total VSCF energy =      3170.832 (from mean single mode energies)
+Total VSCF energy =      3170.832 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET053.dat"
+
+
+Calculating target state 55:
+----------------------------
+Target = [ 0 2 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.17239E+03 (0.27787 sec)
+Iteration 2   ... max diff = 1.62978E+01 (0.27837 sec)
+Iteration 3   ... max diff = 1.80140E-02 (0.27901 sec)
+Iteration 4   ... max diff = 2.30218E-04 (0.27903 sec)
+Iteration 5   ... max diff = 3.34739E-06 (0.27844 sec)
+Iteration 6   ... max diff = 4.87235E-08 (0.27928 sec)
+VSCF converged after 6 iterations (1.67215 sec).
+Mode fundamentals =    [ 23.068 22.286 651.273 654.583 1352.796 2298.231 ]
+Total VSCF energy =      3171.110 (from mean single mode energies)
+Total VSCF energy =      3171.110 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET054.dat"
+
+
+Calculating target state 56:
+----------------------------
+Target = [ 0 3 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.54927E+03 (0.27890 sec)
+Iteration 2   ... max diff = 1.02851E+01 (0.27844 sec)
+Iteration 3   ... max diff = 8.59163E-03 (0.27833 sec)
+Iteration 4   ... max diff = 6.82992E-05 (0.27901 sec)
+Iteration 5   ... max diff = 6.40702E-07 (0.27862 sec)
+VSCF converged after 5 iterations (1.39347 sec).
+Mode fundamentals =    [ 25.534 22.376 652.741 652.638 1348.880 2309.821 ]
+Total VSCF energy =      2554.004 (from mean single mode energies)
+Total VSCF energy =      2554.004 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET055.dat"
+
+
+Calculating target state 57:
+----------------------------
+Target = [ 1 0 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.47912E+03 (0.27808 sec)
+Iteration 2   ... max diff = 2.31148E+01 (0.27833 sec)
+Iteration 3   ... max diff = 1.13152E+00 (0.27886 sec)
+Iteration 4   ... max diff = 1.94122E-01 (0.27789 sec)
+Iteration 5   ... max diff = 4.14967E-02 (0.27964 sec)
+Iteration 6   ... max diff = 9.70116E-03 (0.27961 sec)
+Iteration 7   ... max diff = 2.36554E-03 (0.27883 sec)
+Iteration 8   ... max diff = 5.88802E-04 (0.27798 sec)
+Iteration 9   ... max diff = 1.48061E-04 (0.27838 sec)
+Iteration 10  ... max diff = 3.74219E-05 (0.27841 sec)
+Iteration 11  ... max diff = 9.48256E-06 (0.27801 sec)
+Iteration 12  ... max diff = 2.40594E-06 (0.27898 sec)
+Iteration 13  ... max diff = 6.10838E-07 (0.27893 sec)
+VSCF converged after 13 iterations (3.62225 sec).
+Mode fundamentals =    [ 9.458 21.615 656.953 652.506 1348.820 2309.598 ]
+Total VSCF energy =      2486.961 (from mean single mode energies)
+Total VSCF energy =      2486.961 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET056.dat"
+
+
+Calculating target state 58:
+----------------------------
+Target = [ 1 0 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.81797E+03 (0.27790 sec)
+Iteration 2   ... max diff = 7.48819E+01 (0.27926 sec)
+Iteration 3   ... max diff = 1.16710E+00 (0.27826 sec)
+Iteration 4   ... max diff = 1.86086E-01 (0.27712 sec)
+Iteration 5   ... max diff = 3.99782E-02 (0.27732 sec)
+Iteration 6   ... max diff = 9.38088E-03 (0.27749 sec)
+Iteration 7   ... max diff = 2.29383E-03 (0.27780 sec)
+Iteration 8   ... max diff = 5.72304E-04 (0.27811 sec)
+Iteration 9   ... max diff = 1.44224E-04 (0.28021 sec)
+Iteration 10  ... max diff = 3.65278E-05 (0.27771 sec)
+Iteration 11  ... max diff = 9.27480E-06 (0.27722 sec)
+Iteration 12  ... max diff = 2.35796E-06 (0.27776 sec)
+Iteration 13  ... max diff = 5.99847E-07 (0.27715 sec)
+VSCF converged after 13 iterations (3.61364 sec).
+Mode fundamentals =    [ 9.393 21.677 645.434 641.016 1344.790 2265.623 ]
+Total VSCF energy =      4774.586 (from mean single mode energies)
+Total VSCF energy =      4774.586 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET057.dat"
+
+
+Calculating target state 59:
+----------------------------
+Target = [ 1 0 0 0 0 2 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 7.17550E+03 (0.27796 sec)
+Iteration 2   ... max diff = 1.70115E+02 (0.27867 sec)
+Iteration 3   ... max diff = 1.45310E+00 (0.27858 sec)
+Iteration 4   ... max diff = 1.77119E-01 (0.27830 sec)
+Iteration 5   ... max diff = 3.79841E-02 (0.27873 sec)
+Iteration 6   ... max diff = 8.92441E-03 (0.27860 sec)
+Iteration 7   ... max diff = 2.18245E-03 (0.27821 sec)
+Iteration 8   ... max diff = 5.44233E-04 (0.27858 sec)
+Iteration 9   ... max diff = 1.37035E-04 (0.27723 sec)
+Iteration 10  ... max diff = 3.46726E-05 (0.27808 sec)
+Iteration 11  ... max diff = 8.79424E-06 (0.27854 sec)
+Iteration 12  ... max diff = 2.23328E-06 (0.27895 sec)
+Iteration 13  ... max diff = 5.67501E-07 (0.27751 sec)
+VSCF converged after 13 iterations (3.61829 sec).
+Mode fundamentals =    [ 9.336 21.738 633.943 629.549 1340.721 2221.608 ]
+Total VSCF energy =      7037.202 (from mean single mode energies)
+Total VSCF energy =      7037.202 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET058.dat"
+
+
+Calculating target state 60:
+----------------------------
+Target = [ 1 0 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.82769E+03 (0.27982 sec)
+Iteration 2   ... max diff = 2.30531E+01 (0.27800 sec)
+Iteration 3   ... max diff = 1.12036E+00 (0.27818 sec)
+Iteration 4   ... max diff = 1.91880E-01 (0.27762 sec)
+Iteration 5   ... max diff = 4.09417E-02 (0.27882 sec)
+Iteration 6   ... max diff = 9.55171E-03 (0.27851 sec)
+Iteration 7   ... max diff = 2.32397E-03 (0.27884 sec)
+Iteration 8   ... max diff = 5.77125E-04 (0.27829 sec)
+Iteration 9   ... max diff = 1.44782E-04 (0.27843 sec)
+Iteration 10  ... max diff = 3.65058E-05 (0.27952 sec)
+Iteration 11  ... max diff = 9.22812E-06 (0.27833 sec)
+Iteration 12  ... max diff = 2.33570E-06 (0.27757 sec)
+Iteration 13  ... max diff = 5.91560E-07 (0.27806 sec)
+VSCF converged after 13 iterations (3.62036 sec).
+Mode fundamentals =    [ 9.451 21.632 660.893 656.444 1348.762 2305.600 ]
+Total VSCF energy =      3835.752 (from mean single mode energies)
+Total VSCF energy =      3835.752 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET059.dat"
+
+
+Calculating target state 61:
+----------------------------
+Target = [ 1 0 0 0 1 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 6.16254E+03 (0.27849 sec)
+Iteration 2   ... max diff = 7.48411E+01 (0.27942 sec)
+Iteration 3   ... max diff = 1.15972E+00 (0.27800 sec)
+Iteration 4   ... max diff = 1.83618E-01 (0.27941 sec)
+Iteration 5   ... max diff = 3.93436E-02 (0.27844 sec)
+Iteration 6   ... max diff = 9.20507E-03 (0.27908 sec)
+Iteration 7   ... max diff = 2.24378E-03 (0.27936 sec)
+Iteration 8   ... max diff = 5.57980E-04 (0.27924 sec)
+Iteration 9   ... max diff = 1.40141E-04 (0.27841 sec)
+Iteration 10  ... max diff = 3.53724E-05 (0.27815 sec)
+Iteration 11  ... max diff = 8.95046E-06 (0.27916 sec)
+Iteration 12  ... max diff = 2.26759E-06 (0.27854 sec)
+Iteration 13  ... max diff = 5.74864E-07 (0.27818 sec)
+VSCF converged after 13 iterations (3.62420 sec).
+Mode fundamentals =    [ 9.390 21.694 649.436 645.015 1344.723 2261.553 ]
+Total VSCF energy =      6119.343 (from mean single mode energies)
+Total VSCF energy =      6119.343 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET060.dat"
+
+
+Calculating target state 62:
+----------------------------
+Target = [ 1 0 0 0 2 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.17063E+03 (0.27817 sec)
+Iteration 2   ... max diff = 2.30497E+01 (0.27836 sec)
+Iteration 3   ... max diff = 1.10942E+00 (0.27827 sec)
+Iteration 4   ... max diff = 1.89682E-01 (0.27864 sec)
+Iteration 5   ... max diff = 4.03999E-02 (0.27794 sec)
+Iteration 6   ... max diff = 9.40634E-03 (0.27784 sec)
+Iteration 7   ... max diff = 2.28366E-03 (0.27775 sec)
+Iteration 8   ... max diff = 5.65839E-04 (0.27860 sec)
+Iteration 9   ... max diff = 1.41624E-04 (0.27807 sec)
+Iteration 10  ... max diff = 3.56258E-05 (0.27824 sec)
+Iteration 11  ... max diff = 8.98433E-06 (0.27821 sec)
+Iteration 12  ... max diff = 2.26863E-06 (0.27798 sec)
+Iteration 13  ... max diff = 5.73193E-07 (0.27889 sec)
+VSCF converged after 13 iterations (3.61733 sec).
+Mode fundamentals =    [ 9.443 21.649 664.726 660.274 1348.705 2301.578 ]
+Total VSCF energy =      5178.849 (from mean single mode energies)
+Total VSCF energy =      5178.849 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET061.dat"
+
+
+Calculating target state 63:
+----------------------------
+Target = [ 1 0 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.13681E+03 (0.27735 sec)
+Iteration 2   ... max diff = 2.94095E+01 (0.27850 sec)
+Iteration 3   ... max diff = 1.13043E+00 (0.27808 sec)
+Iteration 4   ... max diff = 1.88413E-01 (0.27775 sec)
+Iteration 5   ... max diff = 3.93947E-02 (0.27881 sec)
+Iteration 6   ... max diff = 8.99967E-03 (0.27929 sec)
+Iteration 7   ... max diff = 2.14253E-03 (0.27967 sec)
+Iteration 8   ... max diff = 5.20321E-04 (0.27831 sec)
+Iteration 9   ... max diff = 1.27601E-04 (0.27886 sec)
+Iteration 10  ... max diff = 3.14432E-05 (0.27783 sec)
+Iteration 11  ... max diff = 7.76674E-06 (0.28003 sec)
+Iteration 12  ... max diff = 1.92072E-06 (0.27792 sec)
+Iteration 13  ... max diff = 4.75276E-07 (0.27747 sec)
+VSCF converged after 13 iterations (3.62023 sec).
+Mode fundamentals =    [ 9.547 21.595 659.353 651.129 1352.756 2298.095 ]
+Total VSCF energy =      3138.779 (from mean single mode energies)
+Total VSCF energy =      3138.779 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET062.dat"
+
+
+Calculating target state 64:
+----------------------------
+Target = [ 1 0 0 1 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.47177E+03 (0.27857 sec)
+Iteration 2   ... max diff = 8.87565E+01 (0.27850 sec)
+Iteration 3   ... max diff = 1.18592E+00 (0.27738 sec)
+Iteration 4   ... max diff = 1.80316E-01 (0.27805 sec)
+Iteration 5   ... max diff = 3.78637E-02 (0.27808 sec)
+Iteration 6   ... max diff = 8.67763E-03 (0.27833 sec)
+Iteration 7   ... max diff = 2.07068E-03 (0.27796 sec)
+Iteration 8   ... max diff = 5.03843E-04 (0.27792 sec)
+Iteration 9   ... max diff = 1.23775E-04 (0.27741 sec)
+Iteration 10  ... max diff = 3.05511E-05 (0.27720 sec)
+Iteration 11  ... max diff = 7.55853E-06 (0.27813 sec)
+Iteration 12  ... max diff = 1.87224E-06 (0.27831 sec)
+Iteration 13  ... max diff = 4.64011E-07 (0.27752 sec)
+VSCF converged after 13 iterations (3.61371 sec).
+Mode fundamentals =    [ 9.493 21.657 647.822 639.652 1348.789 2254.159 ]
+Total VSCF energy =      5414.920 (from mean single mode energies)
+Total VSCF energy =      5414.920 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET063.dat"
+
+
+Calculating target state 65:
+----------------------------
+Target = [ 1 0 0 1 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.48941E+03 (0.27734 sec)
+Iteration 2   ... max diff = 2.94659E+01 (0.27797 sec)
+Iteration 3   ... max diff = 1.11925E+00 (0.27851 sec)
+Iteration 4   ... max diff = 1.86108E-01 (0.27869 sec)
+Iteration 5   ... max diff = 3.88240E-02 (0.27810 sec)
+Iteration 6   ... max diff = 8.84694E-03 (0.27857 sec)
+Iteration 7   ... max diff = 2.10052E-03 (0.27918 sec)
+Iteration 8   ... max diff = 5.08694E-04 (0.27932 sec)
+Iteration 9   ... max diff = 1.24393E-04 (0.27893 sec)
+Iteration 10  ... max diff = 3.05640E-05 (0.27781 sec)
+Iteration 11  ... max diff = 7.52755E-06 (0.27875 sec)
+Iteration 12  ... max diff = 1.85610E-06 (0.28032 sec)
+Iteration 13  ... max diff = 4.57950E-07 (0.27914 sec)
+VSCF converged after 13 iterations (3.62321 sec).
+Mode fundamentals =    [ 9.544 21.612 663.181 655.014 1352.648 2294.157 ]
+Total VSCF energy =      4491.481 (from mean single mode energies)
+Total VSCF energy =      4491.481 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET064.dat"
+
+
+Calculating target state 66:
+----------------------------
+Target = [ 1 0 0 2 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.79607E+03 (0.27955 sec)
+Iteration 2   ... max diff = 3.71042E+01 (0.27866 sec)
+Iteration 3   ... max diff = 1.13173E+00 (0.28063 sec)
+Iteration 4   ... max diff = 1.82711E-01 (0.27829 sec)
+Iteration 5   ... max diff = 3.73722E-02 (0.27799 sec)
+Iteration 6   ... max diff = 8.34465E-03 (0.27839 sec)
+Iteration 7   ... max diff = 1.94002E-03 (0.27880 sec)
+Iteration 8   ... max diff = 4.59804E-04 (0.27918 sec)
+Iteration 9   ... max diff = 1.10000E-04 (0.28008 sec)
+Iteration 10  ... max diff = 2.64356E-05 (0.28038 sec)
+Iteration 11  ... max diff = 6.36729E-06 (0.27864 sec)
+Iteration 12  ... max diff = 1.53531E-06 (0.27875 sec)
+Iteration 13  ... max diff = 3.70394E-07 (0.28157 sec)
+VSCF converged after 13 iterations (3.63126 sec).
+Mode fundamentals =    [ 9.637 21.575 661.755 649.747 1356.566 2286.605 ]
+Total VSCF energy =      3790.761 (from mean single mode energies)
+Total VSCF energy =      3790.761 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET065.dat"
+
+
+Calculating target state 67:
+----------------------------
+Target = [ 1 0 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.14113E+03 (0.27844 sec)
+Iteration 2   ... max diff = 2.93038E+01 (0.27997 sec)
+Iteration 3   ... max diff = 1.03059E+00 (0.27938 sec)
+Iteration 4   ... max diff = 1.57105E-01 (0.27826 sec)
+Iteration 5   ... max diff = 3.04857E-02 (0.27983 sec)
+Iteration 6   ... max diff = 6.48466E-03 (0.27947 sec)
+Iteration 7   ... max diff = 1.43703E-03 (0.28061 sec)
+Iteration 8   ... max diff = 3.24560E-04 (0.28114 sec)
+Iteration 9   ... max diff = 7.39636E-05 (0.27909 sec)
+Iteration 10  ... max diff = 1.69275E-05 (0.27919 sec)
+Iteration 11  ... max diff = 3.88196E-06 (0.27750 sec)
+Iteration 12  ... max diff = 8.91119E-07 (0.27815 sec)
+VSCF converged after 12 iterations (3.35128 sec).
+Mode fundamentals =    [ 11.452 20.947 653.348 654.843 1352.759 2298.073 ]
+Total VSCF energy =      3141.844 (from mean single mode energies)
+Total VSCF energy =      3141.844 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET066.dat"
+
+
+Calculating target state 68:
+----------------------------
+Target = [ 1 0 1 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 5.47654E+03 (0.27905 sec)
+Iteration 2   ... max diff = 8.89474E+01 (0.27850 sec)
+Iteration 3   ... max diff = 1.17597E+00 (0.27964 sec)
+Iteration 4   ... max diff = 1.62011E-01 (0.27804 sec)
+Iteration 5   ... max diff = 3.12974E-02 (0.27797 sec)
+Iteration 6   ... max diff = 6.63972E-03 (0.27838 sec)
+Iteration 7   ... max diff = 1.46827E-03 (0.27819 sec)
+Iteration 8   ... max diff = 3.30984E-04 (0.27760 sec)
+Iteration 9   ... max diff = 7.52911E-05 (0.27904 sec)
+Iteration 10  ... max diff = 1.72009E-05 (0.27857 sec)
+Iteration 11  ... max diff = 3.93777E-06 (0.27903 sec)
+Iteration 12  ... max diff = 9.02371E-07 (0.27841 sec)
+VSCF converged after 12 iterations (3.34275 sec).
+Mode fundamentals =    [ 11.395 20.995 641.857 643.343 1348.792 2254.144 ]
+Total VSCF energy =      5417.967 (from mean single mode energies)
+Total VSCF energy =      5417.967 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET067.dat"
+
+
+Calculating target state 69:
+----------------------------
+Target = [ 1 0 1 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.49326E+03 (0.27891 sec)
+Iteration 2   ... max diff = 2.89586E+01 (0.27853 sec)
+Iteration 3   ... max diff = 1.00156E+00 (0.27892 sec)
+Iteration 4   ... max diff = 1.53162E-01 (0.27792 sec)
+Iteration 5   ... max diff = 2.97422E-02 (0.27901 sec)
+Iteration 6   ... max diff = 6.32480E-03 (0.27843 sec)
+Iteration 7   ... max diff = 1.40061E-03 (0.27745 sec)
+Iteration 8   ... max diff = 3.16044E-04 (0.27850 sec)
+Iteration 9   ... max diff = 7.19494E-05 (0.27797 sec)
+Iteration 10  ... max diff = 1.64489E-05 (0.27951 sec)
+Iteration 11  ... max diff = 3.76807E-06 (0.27965 sec)
+Iteration 12  ... max diff = 8.64001E-07 (0.27780 sec)
+VSCF converged after 12 iterations (3.34292 sec).
+Mode fundamentals =    [ 11.441 20.961 657.234 658.670 1352.650 2294.136 ]
+Total VSCF energy =      4494.549 (from mean single mode energies)
+Total VSCF energy =      4494.549 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET068.dat"
+
+
+Calculating target state 70:
+----------------------------
+Target = [ 1 0 1 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.80261E+03 (0.27804 sec)
+Iteration 2   ... max diff = 3.72330E+01 (0.27895 sec)
+Iteration 3   ... max diff = 1.04650E+00 (0.27896 sec)
+Iteration 4   ... max diff = 1.53204E-01 (0.27897 sec)
+Iteration 5   ... max diff = 2.88607E-02 (0.27777 sec)
+Iteration 6   ... max diff = 5.95311E-03 (0.27945 sec)
+Iteration 7   ... max diff = 1.27788E-03 (0.27785 sec)
+Iteration 8   ... max diff = 2.79346E-04 (0.27840 sec)
+Iteration 9   ... max diff = 6.15835E-05 (0.27992 sec)
+Iteration 10  ... max diff = 1.36302E-05 (0.27888 sec)
+Iteration 11  ... max diff = 3.02238E-06 (0.27810 sec)
+Iteration 12  ... max diff = 6.70778E-07 (0.27792 sec)
+VSCF converged after 12 iterations (3.34349 sec).
+Mode fundamentals =    [ 11.601 20.764 655.620 653.437 1356.584 2286.560 ]
+Total VSCF energy =      3795.984 (from mean single mode energies)
+Total VSCF energy =      3795.984 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET069.dat"
+
+
+Calculating target state 71:
+----------------------------
+Target = [ 1 0 2 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.80352E+03 (0.27818 sec)
+Iteration 2   ... max diff = 3.74753E+01 (0.27791 sec)
+Iteration 3   ... max diff = 1.09209E+00 (0.27932 sec)
+Iteration 4   ... max diff = 1.69120E-01 (0.27819 sec)
+Iteration 5   ... max diff = 3.37748E-02 (0.27866 sec)
+Iteration 6   ... max diff = 7.41885E-03 (0.27899 sec)
+Iteration 7   ... max diff = 1.70089E-03 (0.27856 sec)
+Iteration 8   ... max diff = 3.97880E-04 (0.27855 sec)
+Iteration 9   ... max diff = 9.39755E-05 (0.27792 sec)
+Iteration 10  ... max diff = 2.23000E-05 (0.27805 sec)
+Iteration 11  ... max diff = 5.30369E-06 (0.27889 sec)
+Iteration 12  ... max diff = 1.26279E-06 (0.27792 sec)
+Iteration 13  ... max diff = 3.00832E-07 (0.27819 sec)
+VSCF converged after 13 iterations (3.61971 sec).
+Mode fundamentals =    [ 12.282 20.676 651.178 657.113 1356.570 2286.572 ]
+Total VSCF energy =      3795.401 (from mean single mode energies)
+Total VSCF energy =      3795.401 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET070.dat"
+
+
+Calculating target state 72:
+----------------------------
+Target = [ 1 1 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.47756E+03 (0.27735 sec)
+Iteration 2   ... max diff = 1.58226E+01 (0.27833 sec)
+Iteration 3   ... max diff = 4.39048E-01 (0.27908 sec)
+Iteration 4   ... max diff = 4.84861E-02 (0.27871 sec)
+Iteration 5   ... max diff = 6.21784E-03 (0.27841 sec)
+Iteration 6   ... max diff = 8.39109E-04 (0.27833 sec)
+Iteration 7   ... max diff = 1.15355E-04 (0.27819 sec)
+Iteration 8   ... max diff = 1.59669E-05 (0.27845 sec)
+Iteration 9   ... max diff = 2.21569E-06 (0.27926 sec)
+Iteration 10  ... max diff = 3.07756E-07 (0.27889 sec)
+VSCF converged after 10 iterations (2.78528 sec).
+Mode fundamentals =    [ 11.104 21.222 655.945 652.488 1348.835 2309.654 ]
+Total VSCF energy =      2508.367 (from mean single mode energies)
+Total VSCF energy =      2508.367 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET071.dat"
+
+
+Calculating target state 73:
+----------------------------
+Target = [ 1 1 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.81595E+03 (0.27856 sec)
+Iteration 2   ... max diff = 6.64445E+01 (0.27843 sec)
+Iteration 3   ... max diff = 5.25703E-01 (0.27726 sec)
+Iteration 4   ... max diff = 5.27148E-02 (0.27867 sec)
+Iteration 5   ... max diff = 6.71744E-03 (0.27767 sec)
+Iteration 6   ... max diff = 9.02573E-04 (0.27777 sec)
+Iteration 7   ... max diff = 1.23610E-04 (0.27803 sec)
+Iteration 8   ... max diff = 1.70485E-05 (0.27776 sec)
+Iteration 9   ... max diff = 2.35750E-06 (0.27767 sec)
+Iteration 10  ... max diff = 3.26322E-07 (0.27726 sec)
+VSCF converged after 10 iterations (2.77929 sec).
+Mode fundamentals =    [ 11.093 21.272 644.411 640.997 1344.805 2265.678 ]
+Total VSCF energy =      4796.047 (from mean single mode energies)
+Total VSCF energy =      4796.047 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET072.dat"
+
+
+Calculating target state 74:
+----------------------------
+Target = [ 1 1 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.82616E+03 (0.27721 sec)
+Iteration 2   ... max diff = 1.56378E+01 (0.27777 sec)
+Iteration 3   ... max diff = 4.26024E-01 (0.27881 sec)
+Iteration 4   ... max diff = 4.70966E-02 (0.27852 sec)
+Iteration 5   ... max diff = 6.03693E-03 (0.27896 sec)
+Iteration 6   ... max diff = 8.13762E-04 (0.27878 sec)
+Iteration 7   ... max diff = 1.11713E-04 (0.27922 sec)
+Iteration 8   ... max diff = 1.54396E-05 (0.27876 sec)
+Iteration 9   ... max diff = 2.13921E-06 (0.27738 sec)
+Iteration 10  ... max diff = 2.96669E-07 (0.28029 sec)
+VSCF converged after 10 iterations (2.78595 sec).
+Mode fundamentals =    [ 11.107 21.237 659.882 656.425 1348.778 2305.655 ]
+Total VSCF energy =      3857.173 (from mean single mode energies)
+Total VSCF energy =      3857.173 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET073.dat"
+
+
+Calculating target state 75:
+----------------------------
+Target = [ 1 1 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.13524E+03 (0.27977 sec)
+Iteration 2   ... max diff = 2.16917E+01 (0.27845 sec)
+Iteration 3   ... max diff = 4.49333E-01 (0.27908 sec)
+Iteration 4   ... max diff = 4.85408E-02 (0.27778 sec)
+Iteration 5   ... max diff = 6.13046E-03 (0.27991 sec)
+Iteration 6   ... max diff = 8.14837E-04 (0.27992 sec)
+Iteration 7   ... max diff = 1.10317E-04 (0.27910 sec)
+Iteration 8   ... max diff = 1.50363E-05 (0.27786 sec)
+Iteration 9   ... max diff = 2.05456E-06 (0.27784 sec)
+Iteration 10  ... max diff = 2.80992E-07 (0.27960 sec)
+VSCF converged after 10 iterations (2.78950 sec).
+Mode fundamentals =    [ 11.199 21.207 658.173 651.113 1352.771 2298.150 ]
+Total VSCF energy =      3160.167 (from mean single mode energies)
+Total VSCF energy =      3160.167 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET074.dat"
+
+
+Calculating target state 76:
+----------------------------
+Target = [ 1 1 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.13909E+03 (0.27907 sec)
+Iteration 2   ... max diff = 2.28853E+01 (0.27830 sec)
+Iteration 3   ... max diff = 5.56803E-01 (0.27749 sec)
+Iteration 4   ... max diff = 6.87672E-02 (0.27760 sec)
+Iteration 5   ... max diff = 1.01282E-02 (0.27670 sec)
+Iteration 6   ... max diff = 1.58929E-03 (0.27818 sec)
+Iteration 7   ... max diff = 2.55596E-04 (0.27993 sec)
+Iteration 8   ... max diff = 4.15095E-05 (0.27915 sec)
+Iteration 9   ... max diff = 6.76777E-06 (0.27968 sec)
+Iteration 10  ... max diff = 1.10518E-06 (0.27960 sec)
+Iteration 11  ... max diff = 1.80589E-07 (0.27924 sec)
+VSCF converged after 11 iterations (3.06522 sec).
+Mode fundamentals =    [ 12.167 20.754 653.014 654.649 1352.772 2298.120 ]
+Total VSCF energy =      3162.693 (from mean single mode energies)
+Total VSCF energy =      3162.693 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET075.dat"
+
+
+Calculating target state 77:
+----------------------------
+Target = [ 1 2 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.50565E+03 (0.27801 sec)
+Iteration 2   ... max diff = 1.48508E+01 (0.27859 sec)
+Iteration 3   ... max diff = 2.82563E-01 (0.27721 sec)
+Iteration 4   ... max diff = 2.10495E-02 (0.28046 sec)
+Iteration 5   ... max diff = 1.74298E-03 (0.27781 sec)
+Iteration 6   ... max diff = 1.48570E-04 (0.28049 sec)
+Iteration 7   ... max diff = 1.27709E-05 (0.27854 sec)
+Iteration 8   ... max diff = 1.10047E-06 (0.27918 sec)
+Iteration 9   ... max diff = 9.48985E-08 (0.27959 sec)
+VSCF converged after 9 iterations (2.51012 sec).
+Mode fundamentals =    [ 16.027 20.748 654.689 652.582 1348.855 2309.736 ]
+Total VSCF energy =      2537.620 (from mean single mode energies)
+Total VSCF energy =      2537.620 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET076.dat"
+
+
+Calculating target state 78:
+----------------------------
+Target = [ 2 0 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.50022E+03 (0.27942 sec)
+Iteration 2   ... max diff = 3.91875E+01 (0.27788 sec)
+Iteration 3   ... max diff = 1.87464E+00 (0.27972 sec)
+Iteration 4   ... max diff = 9.81599E-02 (0.27914 sec)
+Iteration 5   ... max diff = 2.69314E-03 (0.27827 sec)
+Iteration 6   ... max diff = 5.60403E-05 (0.28029 sec)
+Iteration 7   ... max diff = 1.10591E-06 (0.27941 sec)
+Iteration 8   ... max diff = 2.16478E-08 (0.28059 sec)
+VSCF converged after 8 iterations (2.23496 sec).
+Mode fundamentals =    [ 6.281 22.229 665.241 652.669 1348.825 2309.513 ]
+Total VSCF energy =      2502.008 (from mean single mode energies)
+Total VSCF energy =      2502.008 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET077.dat"
+
+
+Calculating target state 79:
+----------------------------
+Target = [ 2 0 0 0 0 1 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 4.83905E+03 (0.27883 sec)
+Iteration 2   ... max diff = 9.12671E+01 (0.27886 sec)
+Iteration 3   ... max diff = 1.92876E+00 (0.28008 sec)
+Iteration 4   ... max diff = 9.40085E-02 (0.27933 sec)
+Iteration 5   ... max diff = 2.60023E-03 (0.27762 sec)
+Iteration 6   ... max diff = 5.52664E-05 (0.27924 sec)
+Iteration 7   ... max diff = 1.11623E-06 (0.27984 sec)
+Iteration 8   ... max diff = 2.23699E-08 (0.27967 sec)
+VSCF converged after 8 iterations (2.23369 sec).
+Mode fundamentals =    [ 6.241 22.324 653.653 641.179 1344.799 2265.546 ]
+Total VSCF energy =      4789.551 (from mean single mode energies)
+Total VSCF energy =      4789.551 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET078.dat"
+
+
+Calculating target state 80:
+----------------------------
+Target = [ 2 0 0 0 1 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.84864E+03 (0.27798 sec)
+Iteration 2   ... max diff = 3.90305E+01 (0.27760 sec)
+Iteration 3   ... max diff = 1.85504E+00 (0.27833 sec)
+Iteration 4   ... max diff = 9.63889E-02 (0.27802 sec)
+Iteration 5   ... max diff = 2.62282E-03 (0.27844 sec)
+Iteration 6   ... max diff = 5.42188E-05 (0.28005 sec)
+Iteration 7   ... max diff = 1.06353E-06 (0.27772 sec)
+Iteration 8   ... max diff = 2.07042E-08 (0.27778 sec)
+VSCF converged after 8 iterations (2.22612 sec).
+Mode fundamentals =    [ 6.282 22.250 669.178 656.606 1348.766 2305.519 ]
+Total VSCF energy =      3850.803 (from mean single mode energies)
+Total VSCF energy =      3850.803 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET079.dat"
+
+
+Calculating target state 81:
+----------------------------
+Target = [ 2 0 0 1 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.15802E+03 (0.27924 sec)
+Iteration 2   ... max diff = 4.56324E+01 (0.27933 sec)
+Iteration 3   ... max diff = 1.84068E+00 (0.27860 sec)
+Iteration 4   ... max diff = 9.04629E-02 (0.27911 sec)
+Iteration 5   ... max diff = 2.31030E-03 (0.27920 sec)
+Iteration 6   ... max diff = 4.47526E-05 (0.27863 sec)
+Iteration 7   ... max diff = 8.23749E-07 (0.27874 sec)
+VSCF converged after 7 iterations (1.95307 sec).
+Mode fundamentals =    [ 6.387 22.196 667.729 651.287 1352.761 2298.010 ]
+Total VSCF energy =      3153.986 (from mean single mode energies)
+Total VSCF energy =      3153.986 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET080.dat"
+
+
+Calculating target state 82:
+----------------------------
+Target = [ 2 0 1 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 3.16756E+03 (0.27823 sec)
+Iteration 2   ... max diff = 4.43375E+01 (0.27821 sec)
+Iteration 3   ... max diff = 1.21803E+00 (0.27880 sec)
+Iteration 4   ... max diff = 2.08758E-02 (0.27941 sec)
+Iteration 5   ... max diff = 1.11356E-04 (0.27833 sec)
+Iteration 6   ... max diff = 4.63201E-07 (0.27757 sec)
+VSCF converged after 6 iterations (1.67069 sec).
+Mode fundamentals =    [ 8.307 20.705 657.333 655.037 1352.763 2297.947 ]
+Total VSCF energy =      3162.409 (from mean single mode energies)
+Total VSCF energy =      3162.409 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET081.dat"
+
+
+Calculating target state 83:
+----------------------------
+Target = [ 2 1 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.49255E+03 (0.27770 sec)
+Iteration 2   ... max diff = 2.33107E+01 (0.27862 sec)
+Iteration 3   ... max diff = 8.88033E-01 (0.27747 sec)
+Iteration 4   ... max diff = 5.78431E-02 (0.28104 sec)
+Iteration 5   ... max diff = 3.21495E-03 (0.27825 sec)
+Iteration 6   ... max diff = 1.67242E-04 (0.27755 sec)
+Iteration 7   ... max diff = 8.54670E-06 (0.27732 sec)
+Iteration 8   ... max diff = 4.34946E-07 (0.27857 sec)
+VSCF converged after 8 iterations (2.22677 sec).
+Mode fundamentals =    [ 8.132 21.860 662.474 652.641 1348.845 2309.603 ]
+Total VSCF energy =      2524.059 (from mean single mode energies)
+Total VSCF energy =      2524.059 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET082.dat"
+
+
+Calculating target state 84:
+----------------------------
+Target = [ 3 0 0 0 0 0 ]
+Calculating initial 1D wavefunctions:
+Mode 1, E[1] - E[0] = 32.095
+Mode 2, E[1] - E[0] = 25.056
+Mode 3, E[1] - E[0] = 656.636
+Mode 4, E[1] - E[0] = 656.666
+Mode 5, E[1] - E[0] = 1346.944
+Mode 6, E[1] - E[0] = 2345.390
+
+Starting VSCF iterations...
+Iteration 1   ... max diff = 2.52280E+03 (0.27735 sec)
+Iteration 2   ... max diff = 5.78126E+01 (0.27771 sec)
+Iteration 3   ... max diff = 2.59832E+00 (0.27837 sec)
+Iteration 4   ... max diff = 1.33825E-01 (0.27794 sec)
+Iteration 5   ... max diff = 6.66645E-03 (0.27938 sec)
+Iteration 6   ... max diff = 3.30967E-04 (0.27846 sec)
+Iteration 7   ... max diff = 1.64369E-05 (0.27850 sec)
+Iteration 8   ... max diff = 8.16420E-07 (0.27819 sec)
+VSCF converged after 8 iterations (2.22607 sec).
+Mode fundamentals =    [ 3.371 23.491 674.109 652.896 1348.831 2309.422 ]
+Total VSCF energy =      2517.782 (from mean single mode energies)
+Total VSCF energy =      2517.782 (from total expectation value)
+Saving VSCF data to "VSCF_MODES_TARGET083.dat"
+
+
+Total target calculation 233.39290 sec
+
+
+Target energies:
+----------------
+
+                      |               VSCF               
+--------------------------------------------------------------------------------------------
+[  0  0  0  0  0  0 ] |  2472.290962570 ;     0.000000000
+[  1  0  0  0  0  0 ] |  2486.961375578 ;    14.670413009
+[  0  1  0  0  0  0 ] |  2494.523769804 ;    22.232807235
+[  2  0  0  0  0  0 ] |  2502.007603151 ;    29.716640582
+[  1  1  0  0  0  0 ] |  2508.367018643 ;    36.076056074
+[  3  0  0  0  0  0 ] |  2517.781769027 ;    45.490806458
+[  0  2  0  0  0  0 ] |  2519.021588555 ;    46.730625986
+[  2  1  0  0  0  0 ] |  2524.059251858 ;    51.768289288
+[  1  2  0  0  0  0 ] |  2537.619663265 ;    65.328700695
+[  0  3  0  0  0  0 ] |  2554.004061829 ;    81.713099260
+[  0  0  0  1  0  0 ] |  3124.063855071 ;   651.772892501
+[  0  0  1  0  0  0 ] |  3124.574727771 ;   652.283765202
+[  1  0  0  1  0  0 ] |  3138.778755456 ;   666.487792887
+[  1  0  1  0  0  0 ] |  3141.844494653 ;   669.553532083
+[  0  1  0  1  0  0 ] |  3146.229726262 ;   673.938763692
+[  0  1  1  0  0  0 ] |  3146.841156382 ;   674.550193812
+[  2  0  0  1  0  0 ] |  3153.985506984 ;   681.694544414
+[  1  1  0  1  0  0 ] |  3160.167403054 ;   687.876440484
+[  2  0  1  0  0  0 ] |  3162.409335518 ;   690.118372949
+[  1  1  1  0  0  0 ] |  3162.693246792 ;   690.402284222
+[  0  2  0  1  0  0 ] |  3170.832327985 ;   698.541365416
+[  0  2  1  0  0  0 ] |  3171.110180375 ;   698.819217805
+[  0  0  0  2  0  0 ] |  3776.001897300 ;  1303.710934730
+[  0  0  2  0  0  0 ] |  3776.644479254 ;  1304.353516685
+[  0  0  1  1  0  0 ] |  3778.646439843 ;  1306.355477274
+[  1  0  0  2  0  0 ] |  3790.761278712 ;  1318.470316142
+[  1  0  2  0  0  0 ] |  3795.401255237 ;  1323.110292667
+[  1  0  1  1  0  0 ] |  3795.984407636 ;  1323.693445066
+[  0  1  0  2  0  0 ] |  3798.099243762 ;  1325.808281192
+[  0  1  2  0  0  0 ] |  3798.932501241 ;  1326.641538671
+[  0  1  1  1  0  0 ] |  3800.567156087 ;  1328.276193517
+[  0  0  0  0  1  0 ] |  3821.106257314 ;  1348.815294745
+[  1  0  0  0  1  0 ] |  3835.752143847 ;  1363.461181277
+[  0  1  0  0  1  0 ] |  3843.328924106 ;  1371.037961536
+[  2  0  0  0  1  0 ] |  3850.802992501 ;  1378.512029932
+[  1  1  0  0  1  0 ] |  3857.173324258 ;  1384.882361688
+[  0  2  0  0  1  0 ] |  3867.852974793 ;  1395.562012224
+[  0  0  0  3  0  0 ] |  4428.108478170 ;  1955.817515600
+[  0  0  3  0  0  0 ] |  4428.581585067 ;  1956.290622498
+[  0  0  1  2  0  0 ] |  4432.877150175 ;  1960.586187605
+[  0  0  2  1  0  0 ] |  4432.985317135 ;  1960.694354565
+[  0  0  0  1  1  0 ] |  4476.787631752 ;  2004.496669182
+[  0  0  1  0  1  0 ] |  4477.302230720 ;  2005.011268150
+[  1  0  0  1  1  0 ] |  4491.480754291 ;  2019.189791721
+[  1  0  1  0  1  0 ] |  4494.548577463 ;  2022.257614893
+[  0  1  0  1  1  0 ] |  4498.943970266 ;  2026.653007697
+[  0  1  1  0  1  0 ] |  4499.556073576 ;  2027.265111006
+[  0  0  0  0  0  1 ] |  4760.010610962 ;  2287.719648392
+[  1  0  0  0  0  1 ] |  4774.586058081 ;  2302.295095511
+[  0  1  0  0  0  1 ] |  4782.231113867 ;  2309.940151298
+[  2  0  0  0  0  1 ] |  4789.551053386 ;  2317.260090817
+[  1  1  0  0  0  1 ] |  4796.046919107 ;  2323.755956537
+[  0  2  0  0  0  1 ] |  4806.796001480 ;  2334.505038910
+[  0  0  0  2  1  0 ] |  5132.509347339 ;  2660.218384769
+[  0  0  2  0  1  0 ] |  5133.158474186 ;  2660.867511616
+[  0  0  1  1  1  0 ] |  5135.174752607 ;  2662.883790037
+[  0  0  0  0  2  0 ] |  5164.227811574 ;  2691.936849004
+[  1  0  0  0  2  0 ] |  5178.848977638 ;  2706.558015068
+[  0  1  0  0  2  0 ] |  5186.440631362 ;  2714.149668792
+[  0  0  0  1  0  1 ] |  5400.290803674 ;  2927.999841105
+[  0  0  1  0  0  1 ] |  5400.799175754 ;  2928.508213184
+[  1  0  0  1  0  1 ] |  5414.919988523 ;  2942.629025953
+[  1  0  1  0  0  1 ] |  5417.966921324 ;  2945.675958755
+[  0  1  0  1  0  1 ] |  5422.445410349 ;  2950.154447779
+[  0  1  1  0  0  1 ] |  5423.048203373 ;  2950.757240804
+[  0  0  0  1  2  0 ] |  5823.711203553 ;  3351.420240984
+[  0  0  1  0  2  0 ] |  5824.229381816 ;  3351.938419246
+[  0  0  0  2  0  1 ] |  6040.751164123 ;  3568.460201553
+[  0  0  2  0  0  1 ] |  6041.390611676 ;  3569.099649106
+[  0  0  1  1  0  1 ] |  6043.374889091 ;  3571.083926521
+[  0  0  0  0  1  1 ] |  6104.789462477 ;  3632.498499908
+[  1  0  0  0  1  1 ] |  6119.342813596 ;  3647.051851027
+[  0  1  0  0  1  1 ] |  6127.000602362 ;  3654.709639792
+[  0  0  0  0  3  0 ] |  6501.656096773 ;  4029.365134203
+[  0  0  0  1  1  1 ] |  6749.038905628 ;  4276.747943058
+[  0  0  1  0  1  1 ] |  6749.551290423 ;  4277.260327853
+[  0  0  0  0  0  2 ] |  7022.719435991 ;  4550.428473421
+[  1  0  0  0  0  2 ] |  7037.202462235 ;  4564.911499666
+[  0  1  0  0  0  2 ] |  7044.926562922 ;  4572.635600352
+[  0  0  0  0  2  1 ] |  7443.849411260 ;  4971.558448690
+[  0  0  0  1  0  2 ] |  7651.528590837 ;  5179.237628267
+[  0  0  1  0  0  2 ] |  7652.036475614 ;  5179.745513044
+[  0  0  0  0  1  2 ] |  8363.421880091 ;  5891.130917521
+[  0  0  0  0  0  3 ] |  9260.427692456 ;  6788.136729886
+
+
+#################################
+ NITROGEN exited successfully    
+#################################
