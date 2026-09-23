@@ -1,0 +1,22 @@
+#!/bin/bash
+#SBATCH --job-name="vscf-he-c13-o16o18"
+#SBATCH -o vscf.o
+#SBATCH -e vscf.e
+#SBATCH --partition=compute
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=128
+##SBATCH --cpus-per-task=1
+#SBATCH --mem=10G 
+#SBATCH --account=TG-CHE170085
+#SBATCH --export=ALL
+#SBATCH -t 24:00:00
+
+module load cpu/0.15.4  intel/19.1.1.217  intel-mpi/2019.8.254 cp2k/7.1
+
+export OMP_NUM_THREADS=128
+
+# Launch MPI code... 
+
+time /home/oosode/software/nmode-vibrations/nitrogen-fork/bin/nitrogen VSCF.job > VSCF.out  # Use ibrun instead of mpirun or mpiexec
+
+
